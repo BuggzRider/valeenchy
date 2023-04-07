@@ -1,4 +1,4 @@
-import { ThemeProvider } from "@emotion/react";
+import { Global, ThemeProvider, css } from "@emotion/react";
 import Layout from "components/Layout";
 import Head from "next/head";
 import { defaultTheme } from "styles/theme";
@@ -13,6 +13,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={defaultTheme}>
+        <Global
+          styles={css`
+            body {
+              background: ${defaultTheme.colors.white};
+              font-size: ${defaultTheme.fontSizes.body};
+              line-height: ${defaultTheme.lineHeights.body};
+              color: ${defaultTheme.colors.base_text};
+              font-weight: ${defaultTheme.fontWeights.normal};
+            }
+          `}
+        />
         <Layout>
           <h1>Hello World!</h1>
         </Layout>

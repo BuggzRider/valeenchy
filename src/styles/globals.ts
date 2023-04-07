@@ -27,10 +27,5 @@ html {
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-size: 1em;
-  line-height: 1.5;
-  color: #6b7177;
-  font-weight: 400;
-  background: #ffffff;
 }
 `;

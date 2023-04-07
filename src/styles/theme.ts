@@ -116,7 +116,7 @@ export const BUTTON_ALIASES = {
 };
 
 export const DEFAULT_THEME_ALIAS_OVERRIDES = {
-  colors: {},
+  colors: { base_text: "#6b7177" },
   buttonColors: { primary: BUTTON_ALIASES.blue, accent: BUTTON_ALIASES.white },
 };
 
@@ -180,7 +180,6 @@ export const defaultTheme = {
   lineHeights: { ...LINE_HEIGHTS },
   outlineWidths: [0, 1],
   zIndexs: ["0", "9", "10", "11", "10001", "10002"],
-  isGrocery: false,
 };
 
 /* mediaQueries */
