@@ -7,7 +7,7 @@ const Layout = ({ children }: PropTypes) => {
   return (
     <LayoutContextProvider>
       <Navbar />
-      <main>{children}</main>
+      <div>{children}</div>
       <Footer />
     </LayoutContextProvider>
   );

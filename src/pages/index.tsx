@@ -21,6 +21,7 @@ export default function Home() {
               line-height: ${defaultTheme.lineHeights.body};
               color: ${defaultTheme.colors.base_text};
               font-weight: ${defaultTheme.fontWeights.normal};
+              font-family: futura-pt, sans-serif;
             }
           `}
         />
