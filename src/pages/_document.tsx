@@ -1,13 +1,39 @@
-import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
-
-class MyDocument extends Document {
-  static async getInitialProps(
-    ctx: DocumentContext
-  ): Promise<DocumentInitialProps> {
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from "next/document";
+import * as React from "react";
+import { renderStatic } from "../styles/renderer";
+export default class AppDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
+    const { css, ids } = await renderStatic(initialProps.html);
+    return {
+      ...initialProps,
+      styles: (
+        <React.Fragment>
+          {initialProps.styles}
+          <style
+            data-emotion={`css ${ids.join(" ")}`}
+            dangerouslySetInnerHTML={{ __html: css }}
+          />
+        </React.Fragment>
+      ),
+    };
+  }
 
-    return initialProps;
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
-
-export default MyDocument;

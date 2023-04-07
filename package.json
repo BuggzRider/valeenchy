@@ -17,7 +17,9 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@emotion/css": "^11.10.6",
     "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
     "next": "13.2.4",
     "ramda": "^0.29.0",
     "react": "18.2.0",
@@ -25,6 +27,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
+    "@emotion/babel-plugin": "^11.10.6",
+    "@emotion/eslint-plugin": "^11.10.0",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
@@ -37,6 +41,7 @@
     "@types/ramda": "^0.28.23",
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
     "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
     "cross-env": "^7.0.3",
