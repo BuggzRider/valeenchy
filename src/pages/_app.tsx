@@ -1,31 +1,29 @@
+import { Global, ThemeProvider, css } from "@emotion/react";
+import Layout from "components/Layout";
 import type { AppProps } from "next/app";
-import localFont from "next/font/local";
 import "styles/globals";
-
-const font = localFont({
-  src: [
-    {
-      path: "./fonts/FuturaCyrillicLight.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/FuturaCyrillicBold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "./fonts/FuturaCyrillicExtraBold.woff2",
-      weight: "900",
-      style: "normal",
-    },
-  ],
-});
+import { defaultTheme } from "styles/theme";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={font.className}>
-      <Component {...pageProps} />
-    </main>
+    <ThemeProvider theme={defaultTheme}>
+      <Global
+        styles={css`
+          body {
+            background: ${defaultTheme.colors.white};
+            font-size: ${defaultTheme.fontSizes.body};
+            line-height: ${defaultTheme.lineHeights.body};
+            color: ${defaultTheme.colors.base_text};
+            font-weight: ${defaultTheme.fontWeights.normal};
+            font-family: futura-pt, sans-serif;
+            min-height: 100%;
+            min-width: ${defaultTheme.minWidth};
+          }
+        `}
+      />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   );
 }

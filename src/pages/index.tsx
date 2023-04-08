@@ -1,7 +1,4 @@
-import { Global, ThemeProvider, css } from "@emotion/react";
-import Layout from "components/Layout";
 import Head from "next/head";
-import { defaultTheme } from "styles/theme";
 
 export default function Home() {
   return (
@@ -12,23 +9,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ThemeProvider theme={defaultTheme}>
-        <Global
-          styles={css`
-            body {
-              background: ${defaultTheme.colors.white};
-              font-size: ${defaultTheme.fontSizes.body};
-              line-height: ${defaultTheme.lineHeights.body};
-              color: ${defaultTheme.colors.base_text};
-              font-weight: ${defaultTheme.fontWeights.normal};
-              font-family: futura-pt, sans-serif;
-            }
-          `}
-        />
-        <Layout>
-          <h1>Hello World!</h1>
-        </Layout>
-      </ThemeProvider>
+      <h1>Hello World!</h1>
     </>
   );
 }

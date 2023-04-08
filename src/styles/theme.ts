@@ -168,11 +168,14 @@ export const defaultTheme = {
   },
   // based on the current site and project blue (Joe Sarkis)
   breakpoints: [640, 960], // 0-639 = Mobile, 640-959 = Tablet, 960+ = Desktop
+  minWidth: 320,
   maxWidths: [480, "96.875%", 1440], // Mobile, Tablet, Desktop
   space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
   fontWeights: {
-    normal: "400",
-    bold: "500",
+    light: "400",
+    normal: "500",
+    bold: "700",
+    extraBold: "900",
   },
   fontSizes: {
     ...FONT_SIZES,
