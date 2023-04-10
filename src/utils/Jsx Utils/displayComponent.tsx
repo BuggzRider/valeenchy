@@ -1,3 +1,3 @@
-export const isMobile = ({ children }) => {
+export const isMobile = ({ children }: any) => {
   return <div>{children}</div>;
 };

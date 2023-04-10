@@ -20,6 +20,10 @@ type NavbarItemList = {
   imageUrl?: String;
 };
 
+export type NavbarItemProps = {
+  config: Array<NavbarItemList>;
+};
+
 export type NavbarItem = {
   displayName: String;
   key: String;

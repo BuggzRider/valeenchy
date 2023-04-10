@@ -19,6 +19,13 @@ export default function App({ Component, pageProps }: AppProps) {
             min-height: 100%;
             min-width: ${defaultTheme.minWidth};
           }
+          body > div {
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+          }
         `}
       />
       <Layout>
