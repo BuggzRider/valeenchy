@@ -3,8 +3,11 @@ module.exports = {
   stories: ['../**/*.stories.mdx', '../**/*.stories.@(js|jsx|ts|tsx)'],
   /** Expose public folder to storybook as static */
   staticDirs: ['../public'],
-  addons: [
-
+  addons: ["@storybook/addon-actions",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-knobs",
+    "@storybook/addon-links"
   ],
   framework: '@storybook/react',
   core: {
@@ -12,6 +15,10 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
+  },
+  babel: async (options) => {
+    options.presets.push('@emotion/babel-preset-css-prop')
+    return options
   },
   webpackFinal: async (config) => {
     config.resolve.modules = [

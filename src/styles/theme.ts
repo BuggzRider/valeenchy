@@ -1,3 +1,4 @@
+import facepaint from "facepaint";
 import { pathOr } from "ramda";
 
 export const rgba = (themeColor: string, opacity: number) => (theme?: any) => {
@@ -167,7 +168,11 @@ export const defaultTheme = {
     ...DEFAULT_THEME_ALIAS_OVERRIDES.buttonColors,
   },
   // based on the current site and project blue (Joe Sarkis)
-  breakpoints: [640, 960], // 0-639 = Mobile, 640-959 = Tablet, 960+ = Desktop
+  breakpoints: facepaint([
+    "@media(min-width: 420px)",
+    "@media(min-width: 920px)",
+    "@media(min-width: 1120px)",
+  ]),
   minWidth: 320,
   maxWidths: [480, "96.875%", 1500], // Mobile, Tablet, Desktop
   space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
@@ -183,34 +188,35 @@ export const defaultTheme = {
   lineHeights: { ...LINE_HEIGHTS },
   outlineWidths: [0, 1],
   zIndexs: ["0", "9", "10", "11", "10001", "10002"],
+  borderRadius: ["3"],
 };
 
 /* mediaQueries */
-export const mediaQueries = {
-  mobileOnly: (props: any): string => {
-    const desktopBreakPoint: number =
-      (props.theme &&
-        props.theme.desktopBreakPoints &&
-        props.theme.breakpoints[0]) ||
-      defaultTheme.breakpoints[0];
-    return `@media (max-width: ${desktopBreakPoint}px)`;
-  },
-  desktopOnly: (props: any): string => {
-    const desktopBreakPoint: number =
-      (props.theme &&
-        props.theme.desktopBreakPoints &&
-        props.theme.breakpoints[1]) ||
-      defaultTheme.breakpoints[1];
-    return `@media (min-width: ${desktopBreakPoint}px)`;
-  },
-  ie11Only:
-    "@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)",
-  ie11DesktopOnly: (props: any): string => {
-    const desktopBreakPoint: number =
-      (props.theme &&
-        props.theme.desktopBreakPoints &&
-        props.theme.breakpoints[1]) ||
-      defaultTheme.breakpoints[1];
-    return `@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: ${desktopBreakPoint}px)`;
-  },
-};
+// export const mediaQueries = {
+//   mobileOnly: (props: any): string => {
+//     const desktopBreakPoint: number =
+//       (props.theme &&
+//         props.theme.desktopBreakPoints &&
+//         props.theme.breakpoints[0]) ||
+//       defaultTheme.breakpoints[0];
+//     return `@media (max-width: ${desktopBreakPoint}px)`;
+//   },
+//   desktopOnly: (props: any): string => {
+//     const desktopBreakPoint: number =
+//       (props.theme &&
+//         props.theme.desktopBreakPoints &&
+//         props.theme.breakpoints[1]) ||
+//       defaultTheme.breakpoints[1];
+//     return `@media (min-width: ${desktopBreakPoint}px)`;
+//   },
+//   ie11Only:
+//     "@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)",
+//   ie11DesktopOnly: (props: any): string => {
+//     const desktopBreakPoint: number =
+//       (props.theme &&
+//         props.theme.desktopBreakPoints &&
+//         props.theme.breakpoints[1]) ||
+//       defaultTheme.breakpoints[1];
+//     return `@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: ${desktopBreakPoint}px)`;
+//   },
+// };
