@@ -17,6 +17,7 @@ export const BASE_COLORS = {
   // Black/White
   white: "#FFF",
   black: "#000",
+  transparent: "#ff00",
 
   // grey
   "cyan-grey": "#5f7279",
@@ -134,6 +135,7 @@ export const FONT_SIZES = {
   h2: "1.611rem", // 25.776px
   h1: "1.772rem", // 28.352px
   xl: "2.286rem", // 36.576px
+  xxl: "3rem",
 };
 
 export const LINE_HEIGHTS = {
@@ -169,7 +171,7 @@ export const defaultTheme = {
   },
   // based on the current site and project blue (Joe Sarkis)
   breakpoints: facepaint([
-    "@media(min-width: 420px)",
+    "@media(min-width: 480px)",
     "@media(min-width: 920px)",
     "@media(min-width: 1120px)",
   ]),
@@ -187,7 +189,7 @@ export const defaultTheme = {
   },
   lineHeights: { ...LINE_HEIGHTS },
   outlineWidths: [0, 1],
-  zIndexs: ["0", "9", "10", "11", "10001", "10002"],
+  zIndexs: ["0", "9", "10", "11", "22", "10001", "10002"],
   borderRadius: ["3"],
 };
 

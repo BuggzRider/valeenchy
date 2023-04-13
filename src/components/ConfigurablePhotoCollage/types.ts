@@ -8,9 +8,8 @@ type ChildComponentTypes = {
 };
 
 export type ImageObject = {
-  width: string;
-  height: string;
   url: string;
+  isVideo?: Boolean;
   styles: (_theme: any) => Interpolation<Theme>;
   alt: string;
   childComponent: ChildComponentTypes;
