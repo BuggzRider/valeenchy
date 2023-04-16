@@ -17,4 +17,5 @@ export type SlideTypes = {
 export type CardSliderPropTypes = {
   slides: Array<SlideTypes>;
   type: CARD_SLIDER_TYPES;
+  heading: String;
 };

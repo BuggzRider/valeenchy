@@ -21,13 +21,12 @@ html {
   max-width: 100vw;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 `;

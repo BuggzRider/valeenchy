@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { arrowButton, leftArrowbutton, rightArrowbutton } from "./styles";
+import { leftArrowbutton, rightArrowbutton } from "./styles";
 import { ARROW_BUTTON_TYPES, PropTypes } from "./types";
 
 const emptyStyle = () => css``;
@@ -14,7 +14,6 @@ const ArrowButton = ({
   return (
     <button
       css={[
-        (theme) => arrowButton(theme),
         (theme) =>
           type === ARROW_BUTTON_TYPES.LEFT
             ? leftArrowbutton(theme)

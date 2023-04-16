@@ -1,28 +1,62 @@
 import { css } from "@emotion/react";
+import { CARD_SLIDER_TYPES } from "./types";
+
+export const cardSliderContainer = (theme: any) => css`
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+  label: cardSliderContainer;
+`;
+
+export const cardSliderHeaderContainer = (theme: any) => css`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  label: cardSliderHeaderContainer;
+`;
+
+export const cardSliderHeadingContainer = (theme: any) => css`
+  label: cardSliderHeadingContainer;
+  & > p {
+    font-weight: ${theme.fontWeights.bold};
+    color: ${theme.colors.black};
+  }
+`;
+
+export const cardSliderHeaderControlsContainer = (theme: any) => css`
+  display: flex;
+  ${theme.breakpoints({
+    display: ["none", "flex", "flex"],
+  })}
+  justify-content: flex-end;
+  align-items: center;
+  label: cardSliderHeaderControlsContainer;
+  * {
+    margin: 0 10px;
+  }
+`;
 
 export const imageSlideshowContainer = (theme: any) => css`
   width: 100%;
   height: 100%;
   display: grid;
   grid-auto-flow: column;
-  column-gap: ${theme.fontSizes.body};
+  column-gap: 1.2rem;
   overflow-x: auto;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  scroll-behavior: smooth;
   label: FiveImageCollageFive;
+  &::-webkit-scrollbar {
+    ${theme.breakpoints({
+      display: ["", "none", "none"],
+    })}
+  }
 `;
 
-export const imageSlideshowImage = (theme: any) => css`
-  width: 200px;
+export const imageSlideshowImage = (theme: any, type: String) => css`
+  width: ${type === CARD_SLIDER_TYPES.CIRCLE_IMAGE ? "200px" : "288px"};
   label: largeImageContainer;
-`;
-
-export const smallImageContainer = (theme: any) => css`
-  display: grid;
-  column-gap: ${theme.fontSizes.body};
-  ${theme.breakpoints({
-    display: ["inline-grid", "grid", "grid"],
-    gridTemplateColumns: ["repeat(auto-fit, 65%)", "100%", "49% 49%"],
-    overflowX: ["auto", "hidden", "hidden"],
-  })}
-  align-content: space-between;
-  label: smallImageContainer;
 `;

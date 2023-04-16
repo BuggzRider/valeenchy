@@ -18,6 +18,7 @@ export const BASE_COLORS = {
   white: "#FFF",
   black: "#000",
   transparent: "#ff00",
+  border: "#eeeff1",
 
   // grey
   "cyan-grey": "#5f7279",
@@ -178,9 +179,9 @@ export const defaultTheme = {
   maxWidths: [480, "96.875%", 1500], // Mobile, Tablet, Desktop
   space: [0, 8, 16, 24, 32, 40, 48, 56, 64],
   fontWeights: {
-    ultraLight: "300",
-    light: "400",
-    normal: "500",
+    ultraLight: "400",
+    light: "500",
+    normal: "600",
     bold: "700",
     extraBold: "900",
   },

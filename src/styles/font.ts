@@ -8,8 +8,13 @@ const fonts = localFont({
       style: "normal",
     },
     {
-      path: "./fonts/FuturaCyrillicMedium.woff2",
+      path: "./fonts/FuturaCyrillicBook.woff2",
       weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/FuturaCyrillicMedium.woff2",
+      weight: "600",
       style: "normal",
     },
     {

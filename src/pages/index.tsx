@@ -1,6 +1,5 @@
-import CardSlider from "components/CardSlider";
-import { roundImagesMock } from "components/CardSlider/mock";
-import { CARD_SLIDER_TYPES } from "components/CardSlider/types";
+import CollapsibleComponent from "components/CollapsibleComponent";
+import { collapsibleComponent } from "components/CollapsibleComponent/mock";
 import Head from "next/head";
 
 export default function Home() {
@@ -12,9 +11,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <CardSlider
-        slides={roundImagesMock}
-        type={CARD_SLIDER_TYPES.CIRCLE_IMAGE}
+      <CollapsibleComponent
+        heading={"A few things you might be wondering"}
+        items={collapsibleComponent}
       />
     </>
   );
