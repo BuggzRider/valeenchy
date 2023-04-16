@@ -1,38 +1,52 @@
-import { css } from "@emotion/react";
-import { SingleImageContent } from "./utils";
-
-export const photoCollageMock = {
-  oneImage: {
-    url: "/assets/images/test.webp",
-    styles: () => css``,
-    alt: "",
-    childComponent: {
-      component: SingleImageContent,
-      props: {
-        heading: "Story Theme",
-        body: "A powerful theme built for modern commerce.",
-        buttonsArray: [
-          { isLink: false, label: "View Products" },
-          { isLink: true, url: "/", label: "Learn More" },
-        ],
-      },
+export const fiveImageCollageMock = [
+  {
+    key: "key1",
+    url: "/assets/images/potraitSmall.webp",
+    alt: "image",
+    footerTextConfig: {
+      heading: "Turquoise Halter Tank",
+      body: "Turquoise",
+      price: "$80.00",
     },
   },
-  oneVideo: {
-    url: "/assets/videos/testVideo.mp4",
-    isVideo: true,
-    styles: () => css``,
-    alt: "",
-    childComponent: {
-      component: SingleImageContent,
-      props: {
-        heading: "Story Theme",
-        body: "A powerful theme built for modern commerce.",
-        buttonsArray: [
-          { isLink: false, label: "View Products" },
-          { isLink: true, url: "/", label: "Learn More" },
-        ],
-      },
+  {
+    key: "key2",
+    url: "/assets/images/potraitSmall.webp",
+    alt: "image",
+    footerTextConfig: {
+      heading: "Turquoise Halter Tank",
+      body: "Turquoise",
+      price: "$80.00",
     },
   },
-};
+  {
+    key: "key3",
+    url: "/assets/images/potraitSmall.webp",
+    alt: "image",
+    footerTextConfig: {
+      heading: "Turquoise Halter Tank",
+      body: "Turquoise",
+      price: "$80.00",
+    },
+  },
+  {
+    key: "key4",
+    url: "/assets/images/potraitSmall.webp",
+    alt: "image",
+    footerTextConfig: {
+      heading: "Turquoise Halter Tank",
+      body: "Turquoise",
+      price: "$80.00",
+    },
+  },
+  {
+    key: "key5",
+    url: "/assets/images/potraitlarge.webp",
+    alt: "image",
+    overlayTextConfig: {
+      contentAlignment: "center",
+      heading: "Lemon & Lime",
+      buttonsArray: [{ isLink: false, label: "Shop Citrus", key: "citrus" }],
+    },
+  },
+];

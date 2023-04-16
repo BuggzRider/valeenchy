@@ -17,7 +17,6 @@ export default function App({ Component, pageProps }: AppProps) {
             font-weight: ${defaultTheme.fontWeights.normal};
             font-family: futura-pt, sans-serif;
             min-height: 100%;
-            min-width: ${defaultTheme.minWidth}px;
           }
           body > div {
             width: 100vw;
