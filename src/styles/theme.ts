@@ -13,12 +13,14 @@ export const rgba = (themeColor: string, opacity: number) => (theme?: any) => {
 
 export const BASE_COLORS = {
   // Project Colors
+  border: "#eeeff1",
+  footerBG: "#f2f5fa",
+  footerText: "#3a4b55",
 
   // Black/White
   white: "#FFF",
   black: "#000",
   transparent: "#ff00",
-  border: "#eeeff1",
 
   // grey
   "cyan-grey": "#5f7279",

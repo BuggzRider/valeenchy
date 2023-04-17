@@ -2,7 +2,7 @@ import { LayoutContextProvider } from "context/layoutContext";
 import fonts from "styles/font";
 import Footer from "./../Footer";
 import Navbar from "./../Navbar";
-import { layoutContainer } from "./styles";
+import { layoutContainer, layoutContainerInner } from "./styles";
 import { PropTypes } from "./types";
 
 const Layout = ({ children }: PropTypes) => {
@@ -12,8 +12,10 @@ const Layout = ({ children }: PropTypes) => {
         className={`${fonts.className}`}
         css={(theme) => layoutContainer(theme)}
       >
-        <Navbar />
-        <main>{children}</main>
+        <div css={(theme) => layoutContainerInner(theme)}>
+          <Navbar />
+          <main>{children}</main>
+        </div>
         <Footer />
       </div>
     </LayoutContextProvider>
