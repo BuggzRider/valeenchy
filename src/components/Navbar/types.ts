@@ -1,8 +1,4 @@
-import {
-  NavbarItemColumnListTypes,
-  NavbarItemListTypes,
-  NavbarItemTypes,
-} from "config";
+import { NavbarItemColumnListTypes } from "config";
 
 export type NavbarPropTypes = {
   config: any;
@@ -22,20 +18,4 @@ type NavbarItemList = {
 
 export type NavbarItemProps = {
   config: Array<NavbarItemList>;
-};
-
-export type NavbarItem = {
-  displayName: String;
-  key: String;
-  type: NavbarItemTypes;
-  listType?: NavbarItemListTypes;
-  listItems?: NavbarItemList;
-};
-
-export type NavbarItemType = {
-  config: NavbarItem;
-};
-
-export type NavbarItemPropTypes = {
-  config: Array<NavbarItem>;
 };

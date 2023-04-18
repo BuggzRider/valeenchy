@@ -33,7 +33,7 @@ export const buttonLink = (theme: any) => css`
   font-family: futura-pt, sans-serif;
   color: ${theme.colors.white};
   text-decoration: none;
-  label: navBarListItemLink;
+  label: linkListItemLink;
   cursor: pointer;
   position: relative;
   ${theme.breakpoints({

@@ -1,6 +1,6 @@
+import LinkListRenderer from "components/LinkListRenderer";
 import { isEmpty } from "ramda";
 import { useState } from "react";
-import NavbarItem from "../NavbarItem";
 import { NavbarItemsPropTypes } from "../types";
 import { navListContainer } from "./styles";
 
@@ -15,7 +15,7 @@ const NavbarItems = ({ config = [] }: NavbarItemsPropTypes) => {
   return (
     <ul css={navListContainer} onMouseOver={hoveredLinkHandler}>
       {config.map((item) => (
-        <NavbarItem key={item.key} config={item} />
+        <LinkListRenderer key={item.key} config={item} />
       ))}
     </ul>
   );

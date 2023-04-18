@@ -1,17 +1,18 @@
 import { css } from "@emotion/react";
 
-export const navBarListItemContainer = (theme: any) => css`
+export const linkListItemContainer = (theme: any) => css`
   font-weight: ${theme.fontWeights.normal};
   padding: ${theme.space[2]}px ${theme.space[3]}px;
   color: ${theme.colors.black};
+  list-style-type: none;
   transition: all 1s;
-  label: navBarListItemContainer;
+  label: listListItemContainer;
 `;
 
-export const navBarListItemLink = (theme: any) => css`
+export const linkListItemLink = (theme: any) => css`
   color: ${theme.colors.black};
   text-decoration: none;
-  label: navBarListItemLink;
+  label: linkListItemLink;
   cursor: pointer;
   position: relative;
   &::after {
