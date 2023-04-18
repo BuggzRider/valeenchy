@@ -23,7 +23,7 @@ const SingleMediaRenderer = ({
       <div
         css={[
           (theme: any) => singleMediaContainer(theme),
-          (theme) => containerStyles(theme),
+          containerStyles ? (theme) => containerStyles(theme) : css``,
         ]}
       >
         {type === SingleMediaOptions.IMAGE ? (
@@ -41,7 +41,7 @@ const SingleMediaRenderer = ({
             loop
             muted
             playsInline
-            css={(theme: any) => mediaStyles(theme)}
+            css={mediaStyles ? (theme: any) => mediaStyles(theme) : css``}
           >
             <source src={url} type="video/mp4" />
           </video>
