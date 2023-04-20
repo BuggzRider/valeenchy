@@ -1,15 +1,15 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 import { linkListItemContainer, linkListItemLink } from "./styles";
-import { NavbarItemType } from "./types";
 
 const LinkListRenderer = ({
   config,
   containerStyles,
   linkStyles,
-}: NavbarItemType) => {
+  ...props
+}: any) => {
   return (
-    <li
+    <span
       css={[
         (theme) => linkListItemContainer(theme),
         containerStyles ? (theme) => containerStyles(theme) : css``,
@@ -22,10 +22,11 @@ const LinkListRenderer = ({
         ]}
         href={config.url}
         data-automation={config.key}
+        {...props}
       >
         {config.displayName}
       </Link>
-    </li>
+    </span>
   );
 };
 

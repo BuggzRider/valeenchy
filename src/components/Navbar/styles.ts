@@ -8,6 +8,7 @@ export const navBarStyles = (theme: any) => css`
   align-items: center;
   flex-wrap: no-wrap;
   color: ${theme.colors.black};
+  position: relative;
   label: navBarStyles;
 `;
 

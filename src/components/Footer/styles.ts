@@ -8,8 +8,8 @@ export const footer = (theme: any) => css`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 50vh;
-  font-weight: 500;
+  min-height: 50vh;
+  font-weight: ${theme.fontWeights.light};
   ${theme.breakpoints({
     fontSize: [theme.fontSizes.body, theme.fontSizes.h5, theme.fontSizes.h5],
   })}
@@ -27,16 +27,21 @@ export const footerInfoWrapper = (theme: any) => css`
   height: 100%;
   display: flex;
   justify-content: space-between;
+  ${theme.breakpoints({
+    flexDirection: ["column", "column", "row"],
+    padding: ["1rem", "2rem", "4rem"],
+  })}
   align-items: flex-start;
-  padding: 4rem 4rem;
   label: footerInfoWrapper;
 `;
 
 export const footerInfoContainer = (theme: any) => css`
-  width: 50%;
+  flex: 1 0 50%;
   label: footerInfoContainer;
   & > * {
-    margin-bottom: 2rem;
+    ${theme.breakpoints({
+      marginBottom: ["1rem", "2rem", "2rem"],
+    })}
   }
 `;
 
@@ -45,20 +50,18 @@ export const footerLogoContainer = css`
   label: footerLogoContainer;
 `;
 
-export const footerLinksWrapper = (theme: any) => css`
-  width: 50%;
-  height: 90%;
+export const footerLinksWrapper = () => css`
+  flex: 1 0 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   label: footerLinksWrapper;
 `;
 
-export const footerLinksContainer = (theme: any) => css`
+export const footerLinksContainer = () => css`
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  width: 100%;
-  height: 60%;
+  height: 50%;
   label: footerLinksContainer;
 `;
 

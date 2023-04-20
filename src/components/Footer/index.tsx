@@ -42,19 +42,21 @@ const Footer = () => {
               will encourage you through every step.
             </p>
           </div>
-          <div css={(theme) => footerLinksWrapper(theme)}>
-            <ul css={(theme) => footerLinksContainer(theme)}>
+          <div css={() => footerLinksWrapper()}>
+            <ul css={() => footerLinksContainer()}>
               {footerConfig.linkList.map((item) => (
                 <LinkListRenderer
                   key={item.key}
                   config={item}
-                  containerStyles={() => css`
+                  containerStyles={(theme: any) => css`
                     width: 50%;
                     display: flex;
-                    justify-content: flex-end;
+                    ${theme.breakpoints({
+                      justifyContent: ["flex-start", "flex-start", "flex-end"],
+                    })}
                   `}
-                  linkStyles={() => css`
-                    font-weight: 400;
+                  linkStyles={(theme: any) => css`
+                    font-weight: ${theme.fontWeights.ultraLight};
                   `}
                 />
               ))}
