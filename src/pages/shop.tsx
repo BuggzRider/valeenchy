@@ -1,10 +1,14 @@
 import CardSlider from "components/CardSlider";
 import { roundImagesMock, squareImagesMock } from "components/CardSlider/mock";
 import { CARD_SLIDER_TYPES } from "components/CardSlider/types";
+import FilterComponent from "components/FilterComponent";
+import ChipContainer from "components/FilterComponent/ChipContainer";
+import { allFilters, selectedFilters } from "components/FilterComponent/mock";
 import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
 import {
   shopPageContainer,
+  shopPageFilterContainer,
   shopPageItemContainer,
   shopPageItemContainerStyles,
   shopPageItemMediaStyles,
@@ -24,13 +28,13 @@ const Products = () => {
         />
       </section>
       <section css={(theme) => shopPageSectionContainer(theme)}>
-        {/* <div>
+        <div>
           <ChipContainer selectedFilters={selectedFilters} />
-        </div> */}
+        </div>
         <div css={(theme) => shopPageListContainer(theme)}>
-          {/* <div css={(theme) => shopPageFilterContainer(theme)}>
+          <div css={(theme) => shopPageFilterContainer(theme)}>
             <FilterComponent allFilters={allFilters} />
-          </div> */}
+          </div>
           <ul css={(theme) => shopPageItemsContainer(theme)}>
             {squareImagesMock.map((item) => (
               <li key={item.key} css={(theme) => shopPageItemContainer(theme)}>
