@@ -11,7 +11,7 @@ import { SingleMediaOptions, SingleMediaTypes } from "./types";
 const SingleMediaRenderer = ({
   url,
   mediaStyles = () => css``,
-  containerStyles,
+  containerStyles = () => css``,
   alt,
   type,
   shouldShowOverlay,

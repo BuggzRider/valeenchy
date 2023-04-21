@@ -22,36 +22,78 @@ export const layoutConfig = {
         url: "/shop",
         type: NavbarItemTypes.LIST,
         listType: NavbarItemListTypes.EXPANDABLE,
-        listItems: [
-          {
-            itemName: "Colors",
+        listItems: {
+          columnList1: {
+            displayName: "Colors",
             key: "colors",
             url: "/colors",
             type: NavbarItemColumnListTypes.LIST,
-            items: ["Bubblegum", "Black", "Cement", "Grey"],
+            items: [
+              {
+                displayName: "Bubblegum",
+                url: "/shop?colour='Bubblegum'",
+                key: "Bubblegum",
+              },
+              {
+                displayName: "Black",
+                url: "/shop?colour='Black'",
+                key: "Black",
+              },
+              {
+                displayName: "Cement",
+                url: "/shop?colour='Cement'",
+                key: "Cement",
+              },
+              {
+                displayName: "Grey",
+                url: "/shop?colour='Grey'",
+                key: "Grey",
+              },
+            ],
           },
-          {
-            itemName: "Type",
+          columnList2: {
+            displayName: "Type",
             url: "/type",
             key: "type",
             type: NavbarItemColumnListTypes.LIST,
-            items: ["All Collection", "All Products", "New", "Popular"],
+            items: [
+              {
+                displayName: "All Collection",
+                url: "/type?colour='All Collection'",
+                key: "All Collection",
+              },
+              {
+                displayName: "All Products",
+                url: "/type?colour='All Products'",
+                key: "All Products",
+              },
+              {
+                displayName: "New",
+                url: "/type?colour='New'",
+                key: "New",
+              },
+              {
+                displayName: "Popular",
+                url: "/type?colour='Popular'",
+                key: "Popular",
+              },
+            ],
           },
-          {
-            itemName: "Shop New",
+          columnImage1: {
+            displayName: "Shop New",
             url: "/shopNew",
             key: "shopNew",
             type: NavbarItemColumnListTypes.IMAGE,
             imageUrl: "",
           },
-          {
-            itemName: "Shop Popular",
+          columnImage2: {
+            displayName: "Shop Popular",
             url: "/shopPopular",
             key: "shopPopular",
             type: NavbarItemColumnListTypes.IMAGE,
             imageUrl: "",
           },
-        ],
+        },
       },
       {
         displayName: "Lookbooks",
@@ -67,16 +109,19 @@ export const layoutConfig = {
         listType: NavbarItemListTypes.NORMAL,
         listItems: [
           {
-            itemName: "FAQ",
-            key: "faq",
+            displayName: "FAQ",
+            url: "/about/faq",
+            key: "FAQ",
           },
           {
-            itemName: "Contact",
-            key: "contact",
+            displayName: "Contact",
+            url: "/about/contact",
+            key: "Contact",
           },
           {
-            itemName: "Our Team",
-            key: "ourTeam",
+            displayName: "Our Team",
+            url: "/about/ourTeam",
+            key: "Our Team",
           },
         ],
       },

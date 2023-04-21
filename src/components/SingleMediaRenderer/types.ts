@@ -5,7 +5,7 @@ import { MediaOverlayTypes } from "components/MediaContent/MediaOverlayContent/t
 export type SingleMediaTypes = {
   url: string;
   type: SingleMediaOptions;
-  containerStyles: (_theme: any) => Interpolation<Theme>;
+  containerStyles?: (_theme: any) => Interpolation<Theme>;
   mediaStyles?: (_theme: any) => Interpolation<Theme>;
   alt: string;
   shouldShowOverlay: Boolean;

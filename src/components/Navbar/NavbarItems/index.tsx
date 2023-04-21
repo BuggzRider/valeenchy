@@ -1,23 +1,30 @@
-import LinkListRenderer from "components/LinkListRenderer";
-import { isEmpty } from "ramda";
-import { useState } from "react";
+import NavbarItem from "../NavbarItem";
 import { NavbarItemsPropTypes } from "../types";
 import { navListContainer } from "./styles";
 
 const NavbarItems = ({ config = [] }: NavbarItemsPropTypes) => {
-  const [presentHoveredLink, setpresentHoveredLink] = useState("");
-  const hoveredLinkHandler = (e: any) => {
-    console.log(presentHoveredLink);
-    isEmpty(e.target.dataset) || e.target.dataset.automation === ""
-      ? setpresentHoveredLink("")
-      : setpresentHoveredLink(e.target.dataset.automation);
-  };
+  // const [navbarItems, setNavbarItems] = useState<NavItemsTypes>({
+  //   links: [],
+  //   hoveredItem: [],
+  // });
+
+  // useEffect(() => {
+  //   const navItems: NavItemsTypes = { links: [], hoveredItem: [] };
+
+  //   config.forEach((item) => {
+  //     navItems.links.push(<LinkListRenderer key={item.key} config={item} />);
+  //     if (item.type === NavbarItemTypes.LIST)
+  //       navItems.hoveredItem[item.key] = item;
+  //   });
+  //   setNavbarItems(navItems);
+  // }, [config]);
+
   return (
-    <ul css={navListContainer} onMouseOver={hoveredLinkHandler}>
+    <div css={navListContainer}>
       {config.map((item) => (
-        <LinkListRenderer key={item.key} config={item} />
+        <NavbarItem config={item} />
       ))}
-    </ul>
+    </div>
   );
 };
 
