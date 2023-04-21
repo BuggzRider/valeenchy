@@ -1,3 +1,7 @@
+import { roundImagesMock, squareImagesMock } from "components/CardSlider/mock";
+import { collapsibleComponent } from "components/CollapsibleComponent/mock";
+import { fiveImageCollageMock } from "components/ConfigurablePhotoCollage/mock";
+
 export enum NavbarItemTypes {
   HYPERLINK_ONLY = "hyperlink_only",
   LIST = "list",
@@ -213,6 +217,24 @@ export const layoutConfig = {
           { isLink: true, url: "/", label: "Learn More", key: "about" },
         ],
       },
+    },
+    circleCardSlider: {
+      heading: "Shop by colour",
+      items: roundImagesMock,
+    },
+    squareCardSlider: {
+      heading: "Our Best Sellers",
+      items: squareImagesMock,
+    },
+    fiveImageCollage: {
+      items: fiveImageCollageMock,
+    },
+    fiveImageReverseCollage: {
+      items: fiveImageCollageMock,
+    },
+    collapsibleComponent: {
+      items: collapsibleComponent,
+      heading: "A few things you might be wondering",
     },
   },
 };

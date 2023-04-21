@@ -1,10 +1,7 @@
 import CardSlider from "components/CardSlider";
-import { roundImagesMock, squareImagesMock } from "components/CardSlider/mock";
 import { CARD_SLIDER_TYPES } from "components/CardSlider/types";
 import CollapsibleComponent from "components/CollapsibleComponent";
-import { collapsibleComponent } from "components/CollapsibleComponent/mock";
 import ConfigurablePhotoCollage from "components/ConfigurablePhotoCollage";
-import { fiveImageCollageMock } from "components/ConfigurablePhotoCollage/mock";
 import { CONFIGURABLE_IMAGE_TYPE } from "components/ConfigurablePhotoCollage/types";
 import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
@@ -53,29 +50,29 @@ export default function Home() {
       <section css={(theme: any) => homePageSectionContainer(theme)}>
         <div css={(theme: any) => homePageCircleProductSliderContainer(theme)}>
           <CardSlider
-            slides={roundImagesMock}
+            slides={homePageConfig.circleCardSlider.items}
             type={CARD_SLIDER_TYPES.CIRCLE_IMAGE}
-            heading="Shop by colour"
+            heading={homePageConfig.circleCardSlider.heading}
           />
         </div>
         <div css={(theme: any) => homePageSquareProductSliderContainer(theme)}>
           <CardSlider
-            slides={squareImagesMock}
+            slides={homePageConfig.squareCardSlider.items}
             type={CARD_SLIDER_TYPES.SQUARE_IMAGE}
-            heading="Our Best Sellers"
+            heading={homePageConfig.squareCardSlider.heading}
           />
         </div>
       </section>
       <section css={(theme: any) => homePageSectionContainer(theme)}>
         <div css={(theme: any) => homePageCollageContainer(theme)}>
           <ConfigurablePhotoCollage
-            items={fiveImageCollageMock}
+            items={homePageConfig.fiveImageCollage.items}
             type={CONFIGURABLE_IMAGE_TYPE.FIVE_IMAGE_COLLAGE}
           />
         </div>
         <div css={(theme: any) => homePageReverseCollageContainer(theme)}>
           <ConfigurablePhotoCollage
-            items={fiveImageCollageMock}
+            items={homePageConfig.fiveImageReverseCollage.items}
             type={CONFIGURABLE_IMAGE_TYPE.FIVE_IMAGE_COLLAGE}
             isFiveCollageReversed
           />
@@ -84,8 +81,8 @@ export default function Home() {
       <section css={(theme: any) => homePageSectionContainer(theme)}>
         <div css={(theme: any) => homePageReverseCollageContainer(theme)}>
           <CollapsibleComponent
-            heading={"A few things you might be wondering"}
-            items={collapsibleComponent}
+            heading={homePageConfig.collapsibleComponent.heading}
+            items={homePageConfig.collapsibleComponent.items}
           />
         </div>
       </section>
