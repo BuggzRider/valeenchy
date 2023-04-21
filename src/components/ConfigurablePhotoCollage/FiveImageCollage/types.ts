@@ -11,5 +11,5 @@ export type Item = {
 };
 export type FiveImageCollagePropType = {
   items: Array<Item>;
-  isReverseFlow?: Boolean;
+  isReverseFlow?: boolean;
 };

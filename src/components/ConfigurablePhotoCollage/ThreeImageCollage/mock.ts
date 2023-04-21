@@ -7,7 +7,7 @@ export const threeImageCollageMock = {
     alt: "image",
     overlayTextConfig: {
       heading: "OUR TEAM",
-      extraContainerStyles: (theme) => css`
+      extraContainerStyles: () => css`
         align-items: flex-end;
       `,
     },
@@ -18,7 +18,7 @@ export const threeImageCollageMock = {
     alt: "image",
     overlayTextConfig: {
       heading: "OUR TEAM",
-      extraContainerStyles: (theme) => css`
+      extraContainerStyles: () => css`
         align-items: flex-end;
         font-style: italic;
       `,
@@ -30,7 +30,7 @@ export const threeImageCollageMock = {
     alt: "image",
     overlayTextConfig: {
       heading: "OUR TEAM",
-      extraContainerStyles: (theme) => css`
+      extraContainerStyles: () => css`
         align-items: flex-end;
         font-style: italic;
       `,

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { css } from "@emotion/react";
 
 export const leftArrowbutton = (theme: any) => css`
