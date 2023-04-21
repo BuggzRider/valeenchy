@@ -207,7 +207,7 @@ export const layoutConfig = {
   },
   homePageConfig: {
     centerImageObject: {
-      url: "/assets/images/test.webp",
+      url: "/assets/images/homeCenter.png",
       alt: "image",
       overlayTextConfig: {
         heading: "Story Theme",
