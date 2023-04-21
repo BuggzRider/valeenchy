@@ -201,4 +201,18 @@ export const layoutConfig = {
       },
     ],
   },
+  homePageConfig: {
+    centerImageObject: {
+      url: "/assets/images/test.webp",
+      alt: "image",
+      overlayTextConfig: {
+        heading: "Story Theme",
+        body: "A powerful theme built for modern commerce.",
+        buttonsArray: [
+          { isLink: false, label: "View Products", key: "products" },
+          { isLink: true, url: "/", label: "Learn More", key: "about" },
+        ],
+      },
+    },
+  },
 };

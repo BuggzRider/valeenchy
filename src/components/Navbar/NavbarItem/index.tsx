@@ -4,25 +4,27 @@ import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
 import { NavbarItemListTypes, NavbarItemTypes } from "config";
 import { useState } from "react";
+import { NavbarPropTypes } from "../types";
 import {
   expandedItemsListContainer,
   expandedItemsListWrapper,
   expandedNavItemWrapper,
+  imageExtraOverlayStyles,
   listItem,
   listItemsWrapper,
   listNavItemWrapper,
   navItem,
 } from "./styles";
 
-const NavbarItem = ({ config }) => {
+const NavbarItem = ({ config }: NavbarPropTypes) => {
   const [isLinkHovered, setIsLinkHovered] = useState(false);
   const isExpandable = config.listType === NavbarItemListTypes.EXPANDABLE;
 
-  const componentRenderer = (data) => {
+  const componentRenderer = (data: any) => {
     if (data.listType === NavbarItemListTypes.EXPANDABLE) {
       return (
         <div css={(theme) => expandedItemsListWrapper(theme)}>
-          <ul css={(theme) => expandedItemsListContainer(theme)}>
+          <ul css={() => expandedItemsListContainer()}>
             <LinkListRenderer
               key={data.listItems.columnList1.key}
               config={data.listItems.columnList1}
@@ -30,7 +32,7 @@ const NavbarItem = ({ config }) => {
                 font-weight: ${theme.fontWeights.bold};
               `}
             />
-            {data.listItems.columnList1.items.map((dataItem) => (
+            {data.listItems.columnList1.items.map((dataItem: any) => (
               <LinkListRenderer
                 key={dataItem.key}
                 config={dataItem}
@@ -40,7 +42,7 @@ const NavbarItem = ({ config }) => {
               />
             ))}
           </ul>
-          <ul css={(theme) => expandedItemsListContainer(theme)}>
+          <ul css={() => expandedItemsListContainer()}>
             <LinkListRenderer
               key={data.listItems.columnList2.key}
               config={data.listItems.columnList2}
@@ -48,7 +50,7 @@ const NavbarItem = ({ config }) => {
                 font-weight: ${theme.fontWeights.bold};
               `}
             />
-            {data.listItems.columnList2.items.map((dataItem) => (
+            {data.listItems.columnList2.items.map((dataItem: any) => (
               <LinkListRenderer
                 key={dataItem.key}
                 config={dataItem}
@@ -61,10 +63,10 @@ const NavbarItem = ({ config }) => {
           <div>
             <SingleMediaRendered
               url="/assets/images/potraitLarge.webp"
-              mediaStyles={(theme: any) => css`
+              mediaStyles={() => css`
                 object-fit: cover;
               `}
-              containerStyles={(theme: any) => css`
+              containerStyles={() => css`
                 width: 100%;
                 height: 100%;
               `}
@@ -74,24 +76,17 @@ const NavbarItem = ({ config }) => {
               overlayTextConfig={{
                 contentAlignment: "flex-start",
                 heading: "Shop New",
-                extraContainerStyles: (theme) => css`
-                  justify-content: flex-start;
-                  align-items: flex-end;
-                  h1 {
-                    font-size: 24px;
-                  }
-                  label: overlayExtraStyles;
-                `,
+                extraContainerStyles: imageExtraOverlayStyles,
               }}
             />
           </div>
           <div>
             <SingleMediaRendered
               url="/assets/images/test.webp"
-              mediaStyles={(theme: any) => css`
+              mediaStyles={() => css`
                 object-fit: cover;
               `}
-              containerStyles={(theme: any) => css`
+              containerStyles={() => css`
                 width: 100%;
               `}
               alt="image"
@@ -100,14 +95,7 @@ const NavbarItem = ({ config }) => {
               overlayTextConfig={{
                 contentAlignment: "flex-start",
                 heading: "Shop Popular",
-                extraContainerStyles: (theme) => css`
-                  justify-content: flex-start;
-                  align-items: flex-end;
-                  h1 {
-                    font-size: 24px;
-                  }
-                  label: overlayExtraStyles;
-                `,
+                extraContainerStyles: imageExtraOverlayStyles,
               }}
             />
           </div>
@@ -115,13 +103,13 @@ const NavbarItem = ({ config }) => {
       );
     } else {
       return (
-        <div css={(theme) => listItemsWrapper(theme)}>
-          {data.listItems.map((dataItem) => (
-            <span key={dataItem.key} css={(theme) => listItem(theme)}>
+        <div css={() => listItemsWrapper()}>
+          {data.listItems.map((dataItem: any) => (
+            <span key={dataItem.key} css={() => listItem()}>
               <LinkListRenderer
                 key={dataItem.key}
                 config={dataItem}
-                containerStyles={(theme) => css`
+                containerStyles={() => css`
                   padding: 2px 2px;
                   margin: 5px 5px;
                   width: 100%;

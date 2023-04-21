@@ -13,11 +13,11 @@ export const FiveImageCollageFive = (theme: any) => css`
   label: FiveImageCollageFive;
 `;
 
-export const largeImageContainer = (theme: any) => css`
+export const largeImageContainer = (theme: any, isFirst = false) => css`
   height: 100%;
   label: largeImageContainer;
   ${theme.breakpoints({
-    gridRow: ["1", "unset", "unset"],
+    gridRow: ["1", isFirst ? "1" : "unset", isFirst ? "1" : "unset"],
   })}
 `;
 

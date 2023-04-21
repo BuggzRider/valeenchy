@@ -8,7 +8,6 @@ export const navItem = (theme: any, isPositionRelative = false) => css`
   display: flex;
   justify-content: center;
   align-items: center;
-
   label: navItem;
 `;
 
@@ -32,7 +31,7 @@ export const expandedItemsListWrapper = (theme: any) => css`
   display: grid;
   grid-template-columns: 16% 16% 20% 40%;
   column-gap: 2rem;
-  max-width: 1500px;
+  max-width: ${theme.maxWidths[2]};
   width: 100%
   height: 40vh;
   background: white;
@@ -43,7 +42,7 @@ export const expandedItemsListWrapper = (theme: any) => css`
   label: navItemConatainer;
 `;
 
-export const expandedItemsListContainer = (theme: any) => css`
+export const expandedItemsListContainer = () => css`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -51,7 +50,7 @@ export const expandedItemsListContainer = (theme: any) => css`
   label: expandedItemsListContainer;
 `;
 
-export const listItemsWrapper = (theme: any) => css`
+export const listItemsWrapper = () => css`
   background: white;
   border: 1px solid white;
   border-radius: 20px;
@@ -60,10 +59,19 @@ export const listItemsWrapper = (theme: any) => css`
   label: listItemsWrapper;
 `;
 
-export const listItem = (theme: any) => css`
+export const listItem = () => css`
   margin: 10px 0px;
   min-width: 9rem;
   display: flex;
   width: 100%;
   label: listItem;
+`;
+
+export const imageExtraOverlayStyles = (theme: any) => css`
+  justify-content: flex-start;
+  align-items: flex-end;
+  h1 {
+    font-size: ${theme.fontSizes.h3};
+  }
+  label: overlayExtraStyles;
 `;
