@@ -1,11 +1,9 @@
-import { css } from "@emotion/react";
 import { useState } from "react";
-import ChipContainer from "./ChipContainer";
 import ColorTypeFilter from "./ColorTypeFilter";
 import FilterWithCount from "./FilterWithCounts";
-import { selectedFilters } from "./mock";
 import PriceTypeFilter from "./PriceTypeFilter";
 import SortTypeFilter from "./SortTypeFilter";
+import { selectedFilters } from "./mock";
 import { filterContainer, normalFilterContainer } from "./styles";
 
 const arrowRight = (
@@ -55,7 +53,6 @@ const FilterComponent = ({ allFilters }: any) => {
   const [showPriceFilterOptions, setShowPriceFilterOptions] = useState(false);
   return (
     <>
-      <ChipContainer selectedFilters={selectedFilters} />
       <SortTypeFilter options={sortFilterOptions} />
       <div css={(theme) => filterContainer(theme)}>
         <div css={(theme) => normalFilterContainer(theme)}>Filters</div>
@@ -64,14 +61,7 @@ const FilterComponent = ({ allFilters }: any) => {
           onClick={() => setShowColorOptions((prevState) => !prevState)}
         >
           Color Filter <span>{colorValue}</span>
-          <span
-            css={css`
-              position: relative;
-              left: 70%;
-            `}
-          >
-            {showColorOptions ? arrowDown : arrowRight}
-          </span>
+          <span>{showColorOptions ? arrowDown : arrowRight}</span>
         </div>
         {showColorOptions && (
           <ColorTypeFilter
@@ -86,14 +76,7 @@ const FilterComponent = ({ allFilters }: any) => {
           onClick={() => setShowProductTypeOptions((prevState) => !prevState)}
         >
           Product Type
-          <span
-            css={css`
-              position: relative;
-              left: 70%;
-            `}
-          >
-            {showProductTypeOptions ? arrowDown : arrowRight}
-          </span>
+          <span>{showProductTypeOptions ? arrowDown : arrowRight}</span>
         </div>
         {showProductTypeOptions && (
           <FilterWithCount
@@ -108,14 +91,7 @@ const FilterComponent = ({ allFilters }: any) => {
           }
         >
           Availability
-          <span
-            css={css`
-              position: relative;
-              left: 70%;
-            `}
-          >
-            {showAvailableFilterOptions ? arrowDown : arrowRight}
-          </span>
+          <span>{showAvailableFilterOptions ? arrowDown : arrowRight}</span>
         </div>
         {showAvailableFilterOptions && (
           <FilterWithCount
@@ -128,14 +104,7 @@ const FilterComponent = ({ allFilters }: any) => {
           onClick={() => setShowPriceFilterOptions((prevState) => !prevState)}
         >
           Price
-          <span
-            css={css`
-              position: relative;
-              left: 70%;
-            `}
-          >
-            {showPriceFilterOptions ? arrowDown : arrowRight}
-          </span>
+          <span>{showPriceFilterOptions ? arrowDown : arrowRight}</span>
         </div>
         {showPriceFilterOptions && (
           <PriceTypeFilter selectedFilters={selectedFilters} />

@@ -18,7 +18,8 @@ const FilterWithCount = ({ options }: any) => {
             justify-content: space-between;
             align-items: center;
             width: 100%;
-
+            font-weight: 500;
+            opacity: ${option.count === 0 ? "0.5" : "1"};
             input {
               color: red;
             }

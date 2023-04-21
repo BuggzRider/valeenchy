@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import { useState } from "react";
 import { sortOption, sortOptionsContainer } from "../styles";
 import { sortFilterContainer } from "./styles";
@@ -45,14 +44,7 @@ const SortTypeFilter = ({ options }: any) => {
         onClick={() => setShowOptions((prevState) => !prevState)}
       >
         <span>{value}</span>
-        <span
-          css={css`
-            position: relative;
-            left: 80%;
-          `}
-        >
-          {showOptions ? arrowUp : arrowDown}
-        </span>
+        <span>{showOptions ? arrowUp : arrowDown}</span>
       </div>
       {showOptions && (
         <div css={(theme) => sortOptionsContainer(theme)}>

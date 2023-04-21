@@ -132,7 +132,7 @@ export const productTypeFilterOptions = [
   {
     key: "bottoms",
     label: "Bottoms",
-    count: 0,
+    count: 4,
     selected: true,
   },
   {
@@ -144,7 +144,7 @@ export const productTypeFilterOptions = [
   {
     key: "onesies",
     label: "Onesies",
-    count: 0,
+    count: 1,
     selected: true,
   },
   {
@@ -159,7 +159,7 @@ export const availableFilterOptions = [
   {
     key: "inStock",
     label: "In Stock",
-    count: 0,
+    count: 4,
     selected: false,
   },
   {

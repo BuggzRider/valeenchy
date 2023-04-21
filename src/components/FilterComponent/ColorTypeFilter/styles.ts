@@ -13,9 +13,9 @@ export const filterListStyle = () => css`
   list-style: none;
   display: flex;
   justify-content: space-around;
-  width: 62%;
+  width: 70%;
   flex-wrap: wrap;
-  margin: 0 8px;
+  margin: 0 16px;
 `;
 
 export const colorFilter = (key: any) => css`

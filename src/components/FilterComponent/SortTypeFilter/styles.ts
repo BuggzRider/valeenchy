@@ -8,8 +8,10 @@ export const sortFilterContainer = (theme: any) => css`
   padding: 16px 8px;
   border: 1px solid #eeeff1;
   border-radius: 3px;
-  width: 25%;
+  width: 100%;
   transition: all 1s;
   cursor: pointer;
   label: filterContainer;
+  display: flex;
+  justify-content: space-between;
 `;
