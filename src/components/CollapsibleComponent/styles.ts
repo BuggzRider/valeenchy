@@ -26,6 +26,9 @@ export const collapsibleComponentHeader = (theme: any) => css`
 export const collapsibleComponentContainer = () => css`
   width: 100%;
   height: 100%;
+  & > .Collapsible {
+    border-bottom: 1px solid #eeeff1;
+  }
   label: collapsibleComponentContainer;
 `;
 
@@ -44,7 +47,6 @@ export const collapsibleComponentItemHeadingWrapper = (theme: any) => css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid ${theme.colors.border};
   padding: ${theme.fontSizes.h3} 0;
   font-size: ${theme.fontSizes.h3};
   font-weight: ${theme.fontWeights.light};

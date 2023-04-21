@@ -1,9 +1,5 @@
 import { ArrayInterpolation, Theme } from "@emotion/react";
-import {
-  NavbarItemColumnListTypes,
-  NavbarItemListTypes,
-  NavbarItemTypes,
-} from "config";
+import { NavbarItemColumnListTypes } from "config";
 
 type NavbarItemList = {
   itemName: String;
@@ -18,9 +14,6 @@ export type LinkListRendererTypes = {
   displayName: String;
   url: string;
   key: String;
-  type: NavbarItemTypes;
-  listType?: NavbarItemListTypes;
-  listItems?: NavbarItemList;
 };
 
 export type NavbarItemType = {

@@ -8,7 +8,10 @@ import {
 } from "./styles";
 import { FiveImageCollagePropType, Item } from "./types";
 
-const FiveImageCollage = ({ items }: FiveImageCollagePropType) => {
+const FiveImageCollage = ({
+  items,
+  isReverseFlow = false,
+}: FiveImageCollagePropType) => {
   const getRemainingImages = (items: Array<Item>) => {
     const processedComponents = [];
     for (let i = 0; i < items.length - 1; i++) {
@@ -40,7 +43,7 @@ const FiveImageCollage = ({ items }: FiveImageCollagePropType) => {
       <div css={(theme) => smallImageContainer(theme)}>
         {getRemainingImages(items)}
       </div>
-      <div css={(theme) => largeImageContainer(theme)}>
+      <div css={(theme) => largeImageContainer(theme, isReverseFlow)}>
         <SingleMediaRendered
           key={items[items.length - 1].key}
           url={items[items.length - 1].url}

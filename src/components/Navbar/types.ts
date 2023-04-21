@@ -1,4 +1,5 @@
 import { NavbarItemColumnListTypes } from "config";
+import { ReactElement } from "react";
 
 export type NavbarPropTypes = {
   config: any;
@@ -18,4 +19,13 @@ type NavbarItemList = {
 
 export type NavbarItemProps = {
   config: Array<NavbarItemList>;
+};
+
+export type NavbarItem = {
+  [x: number]: NavbarItemList;
+};
+
+export type NavItemsTypes = {
+  links: Array<ReactElement>;
+  hoveredItem: NavbarItem;
 };

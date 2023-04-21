@@ -9,14 +9,12 @@ export type Item = {
   overlayTextConfig?: MediaOverlayTypes | any;
   footerTextConfig?: MediaFooterTypes | any;
 };
-export type ConfigurablePhotoCollagePropType = {
-  items: any;
-  type: CONFIGURABLE_IMAGE_TYPE;
-  isFiveCollageReversed?: Boolean;
-};
 
-export enum CONFIGURABLE_IMAGE_TYPE {
-  FIVE_IMAGE_COLLAGE = "FIVE_IMAGE_COLLAGE",
-  THREE_IMAGE_COLLAGE = "THREE_IMAGE_COLLAGE",
-  CUSTOM = "CUSTOM",
-}
+export type ItemsObject = {
+  landscape: Item;
+  footerImg1: Item;
+  footerImg2: Item;
+};
+export type ThreeImageCollagePropType = {
+  items: ItemsObject;
+};
