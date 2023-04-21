@@ -15,7 +15,7 @@ import {
   shopPageItemsContainer,
   shopPageListContainer,
   shopPageSectionContainer,
-} from "./pageStyles/shop.styles";
+} from "../styles/pageStyles/shop.styles";
 
 const Products = () => {
   return (

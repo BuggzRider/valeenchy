@@ -18,7 +18,7 @@ import {
   homePageReverseCollageContainer,
   homePageSectionContainer,
   homePageSquareProductSliderContainer,
-} from "./pageStyles/index.styles";
+} from "../styles/pageStyles/index.styles";
 
 export default function Home() {
   const { homePageConfig } = useContext(LayoutContext);

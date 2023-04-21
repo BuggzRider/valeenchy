@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ArrayInterpolation, Theme } from "@emotion/react";
 import { NavbarItemColumnListTypes } from "config";
 

@@ -105,8 +105,8 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
   };
 
   return (
-    <div css={(theme) => cardSliderContainer(theme)}>
-      <div css={(theme) => cardSliderHeaderContainer(theme)}>
+    <div css={() => cardSliderContainer()}>
+      <div css={() => cardSliderHeaderContainer()}>
         <div css={(theme) => cardSliderHeadingContainer(theme)}>
           <p>{heading}</p>
         </div>

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { css } from "@emotion/react";
 
 export const shopPageContainer = (theme: any) => css`

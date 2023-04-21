@@ -1,14 +1,14 @@
 import { css } from "@emotion/react";
 import { CARD_SLIDER_TYPES } from "./types";
 
-export const cardSliderContainer = (theme: any) => css`
+export const cardSliderContainer = () => css`
   display: flex;
   flex-direction: column;
   margin: 1rem 0;
   label: cardSliderContainer;
 `;
 
-export const cardSliderHeaderContainer = (theme: any) => css`
+export const cardSliderHeaderContainer = () => css`
   display: flex;
   justify-content: space-between;
   align-items: center;

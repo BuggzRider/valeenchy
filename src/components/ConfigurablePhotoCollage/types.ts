@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { MediaFooterTypes } from "components/MediaContent/MediaFooterContent/types";
 import { MediaOverlayTypes } from "components/MediaContent/MediaOverlayContent/types";
 import { Key } from "react";
@@ -12,7 +13,7 @@ export type Item = {
 export type ConfigurablePhotoCollagePropType = {
   items: any;
   type: CONFIGURABLE_IMAGE_TYPE;
-  isFiveCollageReversed?: Boolean;
+  isFiveCollageReversed?: boolean;
 };
 
 export enum CONFIGURABLE_IMAGE_TYPE {
