@@ -29,4 +29,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+li {
+  list-style-type: none;
+}
+
 `;
