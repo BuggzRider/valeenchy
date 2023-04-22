@@ -18,7 +18,7 @@ const Navbar = () => {
       <div css={navbarLogoContainer}>
         <Link css={(theme) => navbarLogoLink(theme)} href="/">
           <Image
-            src="/assets/images/logo.png"
+            src="https://vallenchy-images.nyc3.cdn.digitaloceanspaces.com/images/logo.png"
             alt="Valeenchy logo"
             width="100"
             height="100"
