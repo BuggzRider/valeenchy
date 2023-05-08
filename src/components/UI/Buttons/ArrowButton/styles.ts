@@ -34,15 +34,13 @@ export const leftArrowbutton = (theme: any) => css`
     border-top: 1.5px solid;
     border-right: 1.5px solid;
     margin-right: 2px;
+    transform: translate(-50%, -50%) rotate(-135deg);
   }
 
   &[disabled] {
     opacity: 0.4;
     color: #70747d;
     cursor: default;
-  }
-  &:after {
-    transform: translate(-50%, -50%) rotate(-135deg);
   }
 `;
 

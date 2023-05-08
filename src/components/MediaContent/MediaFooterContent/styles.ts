@@ -1,7 +1,9 @@
 import { css } from "@emotion/react";
 
 export const mediaFooterContentContainer = (theme: any) => css`
-  color: ${theme.colors.black};
+  color: ${theme.colors.white};
+  position: relatice;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,11 +15,9 @@ export const mediaFooterContentContainer = (theme: any) => css`
 `;
 
 export const mediaFooterContentHeading = (theme: any) => css`
-  font-weight: ${theme.fontWeights.light};
+  font-weight: ${theme.fontWeights.normal};
   line-height: ${theme.lineHeights.body};
-  ${theme.breakpoints({
-    fontSize: [theme.fontSizes.h5, theme.fontSizes.h5, theme.fontSizes.h5],
-  })}
+  font-size: ${theme.fontSizes.body};
   margin: 0;
   margin-bottom: ${theme.fontSizes.disclaimer};
   label: mediaFooterContentHeading;

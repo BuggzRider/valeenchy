@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-const fonts = localFont({
+const FuturaFont = localFont({
   src: [
     {
       path: "./fonts/FuturaCyrillicLight.woff2",
@@ -30,4 +30,4 @@ const fonts = localFont({
   ],
 });
 
-export default fonts;
+export default FuturaFont;

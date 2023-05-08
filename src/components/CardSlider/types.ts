@@ -18,4 +18,6 @@ export type CardSliderPropTypes = {
   slides: Array<SlideTypes>;
   type: CARD_SLIDER_TYPES;
   heading: String;
+  containerStyles?: string;
+  elementStyles?: string;
 };

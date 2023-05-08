@@ -4,17 +4,16 @@ import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
 import ArrowButton from "components/UI/Buttons/ArrowButton";
 import { ARROW_BUTTON_TYPES } from "components/UI/Buttons/ArrowButton/types";
 import { useRef, useState } from "react";
-import {
-  cardSliderContainer,
-  cardSliderHeaderContainer,
-  cardSliderHeaderControlsContainer,
-  cardSliderHeadingContainer,
-  imageSlideshowContainer,
-  imageSlideshowImage,
-} from "./styles";
+import styles from "./styles.module.scss";
 import { CARD_SLIDER_TYPES, CardSliderPropTypes, SlideTypes } from "./types";
 
-const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
+const CardSlider = ({
+  slides,
+  type,
+  heading,
+  containerStyles = "",
+  elementStyles = "",
+}: CardSliderPropTypes) => {
   const [scrollPostition, setScrollPosition] = useState(0);
   const containerRef = useRef<any>(null);
   const slideLeft = () => {
@@ -33,7 +32,7 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
   };
 
   const arrowControlsContainer = () => (
-    <div css={(theme) => cardSliderHeaderControlsContainer(theme)}>
+    <div className={styles.cardSliderHeaderControlsContainer}>
       <ArrowButton
         onClickHandler={slideLeft}
         extraStyles={() => css``}
@@ -57,39 +56,17 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
     </div>
   );
 
-  const getCompoenent = (
-    slides: Array<SlideTypes>,
-    type: CARD_SLIDER_TYPES
-  ) => {
+  const getComponent = (slides: Array<SlideTypes>, type: CARD_SLIDER_TYPES) => {
     switch (type) {
       case CARD_SLIDER_TYPES.CIRCLE_IMAGE:
       case CARD_SLIDER_TYPES.SQUARE_IMAGE:
         return slides.map((slide) => (
-          <div
-            key={slide.key}
-            css={(theme) => imageSlideshowImage(theme, type)}
-          >
+          <div key={slide.key} className={styles.imageSlideshowImage}>
             <SingleMediaRendered
               key={slide.key}
               url={slide.src}
-              mediaStyles={() => css`
-                object-fit: cover;
-              `}
-              containerStyles={() =>
-                type === CARD_SLIDER_TYPES.CIRCLE_IMAGE
-                  ? css`
-                      width: 100%;
-                      height: 100%;
-                      max-height: 200px;
-                      clip-path: circle(50%);
-                      border-radius: 50% !important;
-                      overflow: hidden;
-                    `
-                  : css`
-                      width: 100%;
-                      height: 70%;
-                    `
-              }
+              mediaStyles={elementStyles}
+              containerStyles={containerStyles}
               alt={slide.alt}
               type={SingleMediaOptions.IMAGE}
               shouldShowOverlay={false}
@@ -105,9 +82,9 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
   };
 
   return (
-    <div css={() => cardSliderContainer()}>
-      <div css={() => cardSliderHeaderContainer()}>
-        <div css={(theme) => cardSliderHeadingContainer(theme)}>
+    <div className={styles.cardSliderContainer}>
+      <div className={styles.cardSliderHeaderContainer}>
+        <div className={styles.cardSliderHeadingContainer}>
           <p>{heading}</p>
         </div>
         {containerRef.current
@@ -117,10 +94,10 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
       </div>
       <div
         ref={containerRef}
-        css={(theme) => imageSlideshowContainer(theme)}
+        className={styles.imageSlideshowContainer}
         onScroll={onScrollHandler}
       >
-        {getCompoenent(slides, type)}
+        {getComponent(slides, type)}
       </div>
     </div>
   );

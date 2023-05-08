@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { flash } from "styles/keyframes";
 
 export const mediaOverlayContentWrapper = (
   theme: any,
@@ -41,7 +42,7 @@ export const mediaOverlayContentHeading = (theme: any) => css`
   ${theme.breakpoints({
     fontSize: [theme.fontSizes.xl, theme.fontSizes.xl, theme.fontSizes.xxl],
   })}
-  margin-bottom: ${theme.fontSizes.xl};
+  margin-bottom: 5rem;
   label: mediaOverlayContentHeading;
 `;
 
@@ -75,3 +76,79 @@ export const mediaOverlayContentButton = (theme: any) => css`
     label: mediaOverlayContentButton;
   }
 `;
+
+/*============== Custom Overlay Children =============*/
+
+export const mediaOverlayExtraStyles = (theme: any) => css`
+  height: 100%;
+  label: mediaOverlayExtraStyles;
+`;
+export const customOverlayChildrenContainer = (theme: any) => css`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 4rem;
+  label: customOverlayChildrenContainer;
+`;
+
+export const customOverlayLinksContainer = (theme: any) => css`
+  display: flex;
+  flex-direction: column;
+  label: customOverlayLinksContainer;
+`;
+
+export const linkStyles = (theme: any) => css`
+  text-decoration: none;
+  border: none;
+  appearance: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 1s ease;
+  margin-bottom: 1rem;
+  &:hover {
+    transform: rotate(45deg);
+  }
+  label: linkStyles;
+`;
+
+export const linkItemsContainer = (theme: any) => css`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  label: linkItemsContainer;
+`;
+
+export const linkImageStyles = (theme: any) => css`
+  label: linkImageStyles;
+`;
+
+export const linkTextStyles = (theme: any) => css`
+  margin-left: 1rem;
+  animation: ${flash} 1s infinite;
+  label: linkTextStyles;
+`;
+
+export const customOverlayButtonContainer = (theme: any) => css`
+  label: customOverlayButtonContainer;
+`;
+
+export const customButtonStyles = (theme: any) => css`
+  color: ${theme.colors.white};
+  background-color: ${theme.colors.black};
+  margin-left: 1rem;
+  &:hover {
+    color: ${theme.colors.black};
+    background-color: ${theme.colors.white};
+  }
+  label: customButtonStyles;
+`;
+
