@@ -88,14 +88,14 @@ export const layoutConfig = {
             url: "/shopNew",
             key: "shopNew",
             type: NavbarItemColumnListTypes.IMAGE,
-            imageUrl: "",
+            imageUrl: "/assets/images/Female/4.png",
           },
           columnImage2: {
             displayName: "Shop Popular",
             url: "/shopPopular",
             key: "shopPopular",
             type: NavbarItemColumnListTypes.IMAGE,
-            imageUrl: "",
+            imageUrl: "/assets/images/Female/5.png",
           },
         },
       },
@@ -207,7 +207,7 @@ export const layoutConfig = {
   },
   homePageConfig: {
     centerImageObject: {
-      url: "/assets/images/test.webp",
+      url: "/assets/images/homeCenter.png",
       alt: "image",
       overlayTextConfig: {
         heading: "Story Theme",
