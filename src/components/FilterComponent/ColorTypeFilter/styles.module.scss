@@ -1,0 +1,35 @@
+.colorFilterContainer {
+  display: inline-block;
+  border-bottom: 1px solid #eeeff1;
+  width: 100%;
+  height: 170px;
+  list-style: none;
+  .colorfilterListStyle {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    flex-wrap: wrap;
+    margin: 0 16px;
+    .colorFilter {
+      display: block;
+      position: relative;
+      width: 32px;
+      height: 32px;
+      margin: 0.5rem 0.2rem;
+      border-radius: 100%;
+      cursor: pointer;
+      background-color: black;
+    }
+    .colorFilterSelected {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 24px;
+      height: 24px;
+      border-radius: 100%;
+      border: 3px solid white;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
