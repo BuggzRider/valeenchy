@@ -9,10 +9,6 @@ import LayoutContext from "context/layoutContext/layout-context";
 import { useRouter } from "next/router";
 import { isEmpty } from "ramda";
 import { useContext, useMemo } from "react";
-import {
-  shopPageItemContainerStyles,
-  shopPageItemMediaStyles,
-} from "../styles/pageStyles/shop.styles";
 import styles from "./../styles/pageStyles/shop.styles.module.scss";
 
 const Products = () => {
@@ -43,11 +39,15 @@ const Products = () => {
   return (
     <div className={styles.shopPageContainer}>
       <section className={styles.shopPageSectionContainer}>
-        <CardSlider
-          slides={roundImagesMock}
-          type={CARD_SLIDER_TYPES.CIRCLE_IMAGE}
-          heading="All Products"
-        />
+        <div className={styles.shopPageCircleProductSliderContainer}>
+          <CardSlider
+            slides={roundImagesMock}
+            type={CARD_SLIDER_TYPES.IMAGE}
+            heading="All Products"
+            containerStyles={styles.circleImage}
+            elementStyles={styles.image}
+          />
+        </div>
       </section>
       <section className={styles.shopPageSectionContainer}>
         <ChipContainer
@@ -68,10 +68,8 @@ const Products = () => {
               <li key={item.key} className={styles.shopPageItemContainer}>
                 <SingleMediaRendered
                   url={item.src}
-                  mediaStyles={(theme) => shopPageItemMediaStyles(theme)}
-                  containerStyles={(theme) =>
-                    shopPageItemContainerStyles(theme)
-                  }
+                  mediaStyles={styles.image}
+                  containerStyles={styles.shopPageProductImageContainer}
                   alt={item.alt}
                   type={SingleMediaOptions.IMAGE}
                   shouldShowOverlay={false}

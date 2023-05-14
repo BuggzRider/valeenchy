@@ -17,6 +17,8 @@ const SingleMediaRenderer = ({
   overlayTextConfig,
   footerTextConfig,
   fill = true,
+  onClick,
+  ...props
 }: SingleMediaTypes) => {
   return (
     <Fragment>
@@ -28,11 +30,13 @@ const SingleMediaRenderer = ({
             fill={fill}
             priority
             className={mediaStyles}
+            onClick={onClick}
             fallback="/assets/images/fallback_landscape.png"
+            {...props}
           />
         ) : (
           <video autoPlay loop muted playsInline className={mediaStyles}>
-            <source src={url} type="video/mp4" />
+            <source src={url} type="video/mp4" {...props} />
           </video>
         )}
         {!isNil(overlayTextConfig) && !isEmpty(overlayTextConfig) && (

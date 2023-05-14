@@ -7,10 +7,11 @@ export type SingleMediaTypes = {
   containerStyles?: string;
   mediaStyles?: string;
   alt: string;
-  shouldShowOverlay: Boolean;
+  shouldShowOverlay?: Boolean;
   overlayTextConfig?: MediaOverlayTypes | any;
   footerTextConfig?: MediaFooterTypes | any;
   fill?: Boolean;
+  onClick?: any;
 };
 
 export enum SingleMediaOptions {

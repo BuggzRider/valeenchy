@@ -30,4 +30,22 @@
       }
     }
   }
+  // ============== Product Slideshow Images ===============//
+  .shopPageCircleProductSliderContainer {
+    width: 100%;
+    .circleImage {
+      width: 200px;
+      height: 200px;
+      max-height: 200px;
+      clip-path: circle(50%);
+      border-radius: 50% !important;
+      overflow: hidden;
+    }
+  }
+  .image {
+    object-fit: cover;
+  }
+  // ============== Product Images ===============//
+  .shopPageProductImageContainer {
+  }
 }

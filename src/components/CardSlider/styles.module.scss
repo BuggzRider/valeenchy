@@ -14,16 +14,16 @@
         font-weight: 700;
         color: black;
       }
-      .cardSliderHeaderControlsContainer {
+    }
+    .cardSliderHeaderControlsContainer {
+      display: none;
+      @include respond(480) {
         display: flex;
-        @include respond(480) {
-          display: none;
-        }
-        justify-content: flex-end;
-        align-items: center;
-        * {
-          margin: 0 10px;
-        }
+      }
+      justify-content: flex-end;
+      align-items: center;
+      * {
+        margin: 0 10px;
       }
     }
   }
@@ -44,11 +44,9 @@
         display: unset;
       }
     }
-    .imageSlideshowImage {
-      .imageContainer {
-        .image {
-          object-fit: cover;
-        }
+    .imageContainer {
+      .image {
+        object-fit: cover;
       }
     }
   }

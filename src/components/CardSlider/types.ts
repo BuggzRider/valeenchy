@@ -2,8 +2,7 @@ import { MediaFooterTypes } from "components/MediaContent/MediaFooterContent/typ
 import { Key } from "react";
 
 export enum CARD_SLIDER_TYPES {
-  SQUARE_IMAGE = "SQUARE_IMAGE",
-  CIRCLE_IMAGE = "CIRCLE_IMAGE",
+  IMAGE = "IMAGE",
   TEXT_CARD = "TEXT_CARD",
 }
 export type SlideTypes = {

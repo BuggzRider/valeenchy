@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
 import ArrowButton from "components/UI/Buttons/ArrowButton";
@@ -17,32 +16,29 @@ const CardSlider = ({
   const [scrollPostition, setScrollPosition] = useState(0);
   const containerRef = useRef<any>(null);
   const slideLeft = () => {
-    containerRef.current.scrollLeft =
+    const currentScrollPosition =
       containerRef.current?.scrollLeft - containerRef.current?.offsetWidth;
+    containerRef.current.scrollLeft = currentScrollPosition;
+    setScrollPosition(currentScrollPosition);
   };
 
   const slideRight = () => {
-    containerRef.current.scrollLeft =
+    const currentScrollPosition =
       containerRef.current?.scrollLeft + containerRef.current?.offsetWidth;
-    console.log(containerRef.current);
-  };
-
-  const onScrollHandler = (e: any) => {
-    setScrollPosition(e.target?.scrollLeft);
+    containerRef.current.scrollLeft = currentScrollPosition;
+    setScrollPosition(currentScrollPosition);
   };
 
   const arrowControlsContainer = () => (
     <div className={styles.cardSliderHeaderControlsContainer}>
       <ArrowButton
         onClickHandler={slideLeft}
-        extraStyles={() => css``}
         label="previous"
         type={ARROW_BUTTON_TYPES.LEFT}
-        disabled={scrollPostition === 0}
+        disabled={scrollPostition <= 0}
       />
       <ArrowButton
         onClickHandler={slideRight}
-        extraStyles={() => css``}
         label="forward"
         type={ARROW_BUTTON_TYPES.RIGHT}
         disabled={
@@ -58,21 +54,18 @@ const CardSlider = ({
 
   const getComponent = (slides: Array<SlideTypes>, type: CARD_SLIDER_TYPES) => {
     switch (type) {
-      case CARD_SLIDER_TYPES.CIRCLE_IMAGE:
-      case CARD_SLIDER_TYPES.SQUARE_IMAGE:
+      case CARD_SLIDER_TYPES.IMAGE:
         return slides.map((slide) => (
-          <div key={slide.key} className={styles.imageSlideshowImage}>
-            <SingleMediaRendered
-              key={slide.key}
-              url={slide.src}
-              mediaStyles={elementStyles}
-              containerStyles={containerStyles}
-              alt={slide.alt}
-              type={SingleMediaOptions.IMAGE}
-              shouldShowOverlay={false}
-              footerTextConfig={slide.footerTextConfig}
-            />
-          </div>
+          <SingleMediaRendered
+            key={slide.key}
+            url={slide.src}
+            mediaStyles={elementStyles}
+            containerStyles={containerStyles}
+            alt={slide.alt}
+            type={SingleMediaOptions.IMAGE}
+            shouldShowOverlay={false}
+            footerTextConfig={slide.footerTextConfig}
+          />
         ));
       case CARD_SLIDER_TYPES.TEXT_CARD:
         return <div></div>;
@@ -92,11 +85,7 @@ const CardSlider = ({
               containerRef.current?.clientWidth && arrowControlsContainer()
           : arrowControlsContainer()}
       </div>
-      <div
-        ref={containerRef}
-        className={styles.imageSlideshowContainer}
-        onScroll={onScrollHandler}
-      >
+      <div ref={containerRef} className={styles.imageSlideshowContainer}>
         {getComponent(slides, type)}
       </div>
     </div>

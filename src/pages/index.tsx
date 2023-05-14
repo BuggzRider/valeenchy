@@ -40,7 +40,7 @@ export default function Home() {
         <div className={styles.homePageCircleProductSliderContainer}>
           <CardSlider
             slides={homePageConfig.circleCardSlider.items}
-            type={CARD_SLIDER_TYPES.CIRCLE_IMAGE}
+            type={CARD_SLIDER_TYPES.IMAGE}
             heading={homePageConfig.circleCardSlider.heading}
             containerStyles={styles.circleImage}
             elementStyles={styles.image}
@@ -49,7 +49,7 @@ export default function Home() {
         <div className={styles.homePageSquareProductSliderContainer}>
           <CardSlider
             slides={homePageConfig.squareCardSlider.items}
-            type={CARD_SLIDER_TYPES.SQUARE_IMAGE}
+            type={CARD_SLIDER_TYPES.IMAGE}
             heading={homePageConfig.squareCardSlider.heading}
             containerStyles={styles.squareImage}
             elementStyles={styles.image}
