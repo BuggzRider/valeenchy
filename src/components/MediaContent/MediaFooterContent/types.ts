@@ -1,4 +1,4 @@
-import { PropTypes as ButtonPropTypes } from "components/UI/Buttons/Button/types";
+import { PropTypes as ButtonPropTypes } from "components/UI/Buttons/LinkButton/types";
 import { Key } from "react";
 
 export interface ExtendedButtonPropTypes extends ButtonPropTypes {

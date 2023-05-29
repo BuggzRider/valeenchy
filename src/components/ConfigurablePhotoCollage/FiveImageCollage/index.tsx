@@ -1,11 +1,6 @@
-import { css } from "@emotion/react";
 import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
-import {
-  FiveImageCollageFive,
-  largeImageContainer,
-  smallImageContainer,
-} from "./styles";
+import styles from "./styles.module.scss";
 import { FiveImageCollagePropType, Item } from "./types";
 
 const FiveImageCollage = ({
@@ -20,13 +15,8 @@ const FiveImageCollage = ({
           <SingleMediaRendered
             key={items[i].key}
             url={items[i].url}
-            mediaStyles={() => css`
-              object-fit: cover;
-            `}
-            containerStyles={() => css`
-              width: 100%;
-              height: 70%;
-            `}
+            mediaStyles={styles.image}
+            containerStyles={styles.smallImageConatiner}
             alt={items[i].alt}
             type={SingleMediaOptions.IMAGE}
             shouldShowOverlay={false}
@@ -39,21 +29,20 @@ const FiveImageCollage = ({
   };
 
   return (
-    <div css={(theme) => FiveImageCollageFive(theme)}>
-      <div css={(theme) => smallImageContainer(theme)}>
+    <div className={styles.fiveImageCollageFive}>
+      <div className={styles.smallImageWrapper}>
         {getRemainingImages(items)}
       </div>
-      <div css={(theme) => largeImageContainer(theme, isReverseFlow)}>
+      <div
+        className={`${styles.largeImageWrapper} ${
+          isReverseFlow ? styles.firstLargeImage : ""
+        }`}
+      >
         <SingleMediaRendered
           key={items[items.length - 1].key}
           url={items[items.length - 1].url}
-          mediaStyles={() => css`
-            object-fit: cover;
-          `}
-          containerStyles={() => css`
-            width: 100%;
-            height: 100%;
-          `}
+          mediaStyles={styles.image}
+          containerStyles={styles.largeImageConatiner}
           alt={items[items.length - 1].alt}
           type={SingleMediaOptions.IMAGE}
           shouldShowOverlay={true}

@@ -1,25 +1,15 @@
 import { css } from "@emotion/react";
-import Link from "next/link";
-import { button, buttonLink } from "./styles";
+import { button } from "./styles";
 import { PropTypes } from "./types";
 
 const emptyStyle = () => css``;
 
-const Button = ({
-  isLink,
-  url,
+const LinkButton = ({
   onClickHandler,
   extraStyles = emptyStyle,
   label,
 }: PropTypes) => {
-  return isLink ? (
-    <Link
-      css={[(theme) => buttonLink(theme), (theme) => extraStyles(theme)]}
-      href={url || ""}
-    >
-      {label}
-    </Link>
-  ) : (
+  return (
     <button
       css={[(theme) => button(theme), (theme) => extraStyles(theme)]}
       onClick={onClickHandler}
@@ -29,4 +19,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default LinkButton;

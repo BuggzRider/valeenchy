@@ -1,201 +1,125 @@
-export const sortFilterOptions = [
-  {
-    key: "featured",
-    order: "",
+export const sortFilterOptions = {
+  featured: {
     label: "Featured",
   },
-  {
-    key: "bestSelling",
-    order: "",
+  bestSelling: {
     label: "Best Selling",
   },
-  {
-    key: "alphabetically",
-    order: "ascending",
+  alphabeticallyAZ: {
     label: "Alphabetically, A-Z",
   },
-  {
-    key: "alphabetically",
-    order: "decending",
+  alphabeticallyZA: {
     label: "Alphabetically, Z-A",
   },
-  {
-    key: "price",
-    order: "ascending",
+  priceLH: {
     label: "Price, low to high",
   },
-  {
-    key: "price",
-    order: "decending",
+  priceHL: {
     label: "Price , High to Low",
   },
-  {
-    key: "date",
-    order: "ascending",
+  dateON: {
     label: "Date, old to new",
   },
-  {
-    key: "date",
-    order: "decending",
+  dateNO: {
     label: "Date, new to old",
   },
-];
+};
 
-export const colorFilterOptions = [
-  {
-    key: "black",
+export const colorFilterOptions = {
+  black: {
     label: "Black",
-    code: "#000000",
-    selected: false,
+    colorCode: "#000000",
   },
-  {
-    key: "bubblegum",
+  bubblegum: {
     label: "Bubblegum",
-    code: "#f641af",
-    selected: true,
+    colorCode: "#f641af",
   },
-  {
-    key: "cement",
+  cement: {
     label: "Cement",
-    code: "#c5c5c5",
-    selected: false,
+    colorCode: "#c5c5c5",
   },
-  {
-    key: "chocolate",
+  chocolate: {
     label: "Chocolate",
-    code: "#542e35",
-    selected: false,
+    colorCode: "#542e35",
   },
-  {
-    key: "khaki",
+  khaki: {
     label: "Khaki",
-    code: "#4b5c42",
-    selected: false,
+    colorCode: "#4b5c42",
   },
-  {
-    key: "lemon",
+  lemon: {
     label: "Lemon",
-    code: "#f4df8d",
-    selected: false,
+    colorCode: "#f4df8d",
   },
-  {
-    key: "lemonMarble",
+  lemonMarble: {
     label: "Lemon Marble",
-    code: "#888888",
-    selected: false,
+    colorCode: "#888888",
   },
-  {
-    key: "lightGreyMarl",
+  lightGreyMarl: {
     label: "Light Grey Marl",
-    code: "#ece8e5",
-    selected: false,
+    colorCode: "#ece8e5",
   },
-  {
-    key: "lilac",
+  lilac: {
     label: "Lilac",
-    code: "#bd88e7",
-    selected: false,
+    colorCode: "#bd88e7",
   },
-  {
-    key: "navy",
+  navy: {
     label: "Navy",
-    code: "#07317a",
-    selected: false,
+    colorCode: "#07317a",
   },
-  {
-    key: "red",
+  red: {
     label: "Red",
-    code: "#e52824",
-    selected: false,
+    colorCode: "#e52824",
   },
-  {
-    key: "sage",
+  sage: {
     label: "Sage",
-    code: "#8cb4b1",
-    selected: false,
+    colorCode: "#8cb4b1",
   },
-  {
-    key: "turquoise",
+  turquoise: {
     label: "Turquoise",
-    code: "#40e0d0",
-    selected: false,
+    colorCode: "#40e0d0",
   },
-  {
-    key: "white",
+  white: {
     label: "White",
-    code: "#ffffff",
-    selected: false,
+    colorCode: "#ffffff",
   },
-];
+};
 
-export const productTypeFilterOptions = [
-  {
-    key: "bottoms",
+export const productTypeFilterOptions = {
+  bottoms: {
     label: "Bottoms",
     count: 4,
-    selected: true,
   },
-  {
-    key: "dresses",
+  dresses: {
     label: "Dresses",
     count: 0,
-    selected: false,
   },
-  {
-    key: "onesies",
+  onesies: {
     label: "Onesies",
     count: 1,
-    selected: true,
   },
-  {
-    key: "tops",
+  tops: {
     label: "Tops",
     count: 0,
-    selected: false,
   },
-];
+};
 
-export const availableFilterOptions = [
-  {
-    key: "inStock",
+export const availableFilterOptions = {
+  inStock: {
     label: "In Stock",
     count: 4,
-    selected: false,
   },
-  {
-    key: "outOfStock",
-    label: "Out f Stock",
+  outOfStock: {
+    label: "Out of Stock",
     count: 0,
-    selected: false,
   },
-];
+};
 
-export const selectedFilters = [
-  {
-    type: "color",
-    value: "Black",
-  },
-  {
-    type: "productType",
-    value: "Bottom",
-  },
-  {
-    type: "availability",
-    value: "In Stock",
-  },
-  {
-    type: "color",
-    value: "Black",
-  },
-  {
-    type: "productType",
-    value: "Bottom",
-  },
-  {
-    type: "availability",
-    value: "In Stock",
-  },
-];
+export const priceFilterOptions = {
+  label: "Price",
+  min: 0,
+  max: 180,
+  symbol: "₹",
+};
 
 export const allFilters = {
   sortFilterOptions,

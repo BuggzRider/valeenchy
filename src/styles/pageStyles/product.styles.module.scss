@@ -1,0 +1,15 @@
+@import "../../styles//abstracts/mixins";
+.productPageContainer {
+  width: 100%;
+  height: 100%;
+  .productPageSectionContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .productInfoWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}

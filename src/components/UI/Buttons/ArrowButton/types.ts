@@ -1,4 +1,3 @@
-import { SerializedStyles } from "@emotion/react";
 import { MouseEventHandler } from "react";
 
 export enum ARROW_BUTTON_TYPES {
@@ -8,7 +7,7 @@ export enum ARROW_BUTTON_TYPES {
 
 export type PropTypes = {
   onClickHandler?: MouseEventHandler<HTMLButtonElement> | undefined;
-  extraStyles?: (theme: any) => SerializedStyles;
+  extraStyles?: string;
   label: String;
   type: ARROW_BUTTON_TYPES;
   disabled: boolean | undefined;

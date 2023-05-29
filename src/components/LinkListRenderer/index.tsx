@@ -20,7 +20,7 @@ const LinkListRenderer = ({
           (theme) => linkListItemLink(theme),
           linkStyles ? (theme) => linkStyles(theme) : css``,
         ]}
-        href={config.url}
+        href={{ pathname: config.url, query: config.query || {} }}
         data-automation={config.key}
         {...props}
       >

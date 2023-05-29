@@ -1,49 +1,42 @@
-import { Interpolation, Theme, css } from "@emotion/react";
 import ImageOverlay from "components/ImageOverlay";
 import MediaFooterContent from "components/MediaContent/MediaFooterContent";
 import MediaOverlayContent from "components/MediaContent/MediaOverlayContent";
 import NextImageWithFallback from "components/NextImageWithFallback";
 import { isEmpty, isNil } from "ramda";
 import { Fragment } from "react";
-import { singleMediaContainer } from "./styles";
+import styles from "./styles.module.scss";
 import { SingleMediaOptions, SingleMediaTypes } from "./types";
 
 const SingleMediaRenderer = ({
   url,
-  mediaStyles = () => css``,
-  containerStyles = () => css``,
+  mediaStyles = "",
+  containerStyles = "",
   alt,
   type,
   shouldShowOverlay,
   overlayTextConfig,
   footerTextConfig,
+  fill = true,
+  onClick,
+  ...props
 }: SingleMediaTypes) => {
   return (
     <Fragment>
-      <div
-        css={[
-          (theme: any) => singleMediaContainer(theme),
-          containerStyles ? (theme) => containerStyles(theme) : css``,
-        ]}
-      >
+      <div className={`${styles.singleMediaContainer} ${containerStyles}`}>
         {type === SingleMediaOptions.IMAGE ? (
           <NextImageWithFallback
             src={url}
             alt={alt}
-            fill
+            fill={fill}
             priority
-            css={(theme: Interpolation<Theme>) => mediaStyles(theme)}
+            className={mediaStyles}
+            onClick={onClick}
             fallback="/assets/images/fallback_landscape.png"
+            {...props}
           />
         ) : (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            css={mediaStyles ? (theme: any) => mediaStyles(theme) : css``}
-          >
-            <source src={url} type="video/mp4" />
+          <video autoPlay loop muted playsInline className={mediaStyles}>
+            <source src={url} type="video/mp4" {...props} />
           </video>
         )}
         {!isNil(overlayTextConfig) && !isEmpty(overlayTextConfig) && (

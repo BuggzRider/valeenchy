@@ -1,0 +1,31 @@
+.checkboxFilterContainer {
+  list-style: none;
+  border-bottom: 1px solid #eeeff1;
+  padding: 16px 8px;
+  .checkboxFilterElement {
+    color: #000;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 500;
+    opacity: 0.5;
+    input {
+      color: red;
+    }
+  }
+  .checkboxFilterElementCount {
+    color: #000;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-weight: 500;
+    opacity: 1;
+    input {
+      color: red;
+    }
+  }
+}

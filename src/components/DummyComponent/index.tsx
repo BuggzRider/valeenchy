@@ -1,5 +1,6 @@
+import styles from "./styles.module.scss";
 const DummyComponent = () => {
-  return <div></div>;
+  return <div className={styles.className}></div>;
 };
 
 export default DummyComponent;

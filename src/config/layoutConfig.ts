@@ -1,6 +1,13 @@
 import { roundImagesMock, squareImagesMock } from "components/CardSlider/mock";
 import { collapsibleComponent } from "components/CollapsibleComponent/mock";
 import { fiveImageCollageMock } from "components/ConfigurablePhotoCollage/mock";
+import {
+  availableFilterOptions,
+  colorFilterOptions,
+  priceFilterOptions,
+  productTypeFilterOptions,
+  sortFilterOptions,
+} from "components/FilterComponent/mock";
 
 export enum NavbarItemTypes {
   HYPERLINK_ONLY = "hyperlink_only",
@@ -17,6 +24,23 @@ export enum NavbarItemColumnListTypes {
   IMAGE = "image",
 }
 
+export enum FilterKeyTypes {
+  COLORS = "color",
+  TYPES = "types",
+  TAGS = "tags",
+  SORT = "sort",
+  PRODUCT_TYPE = "productType",
+  AVAILABILITY = "availability",
+  PRICE = "price",
+}
+
+export enum FilterTypes {
+  COLOR = "COLOR",
+  RADIO = "RADIO",
+  CHECKBOX = "CHECKBOX",
+  RANGE = "RANGE",
+}
+
 export const layoutConfig = {
   navbarConfig: {
     navList: [
@@ -29,73 +53,71 @@ export const layoutConfig = {
         listItems: {
           columnList1: {
             displayName: "Colors",
-            key: "colors",
-            url: "/colors",
+            key: FilterKeyTypes.COLORS,
             type: NavbarItemColumnListTypes.LIST,
             items: [
               {
                 displayName: "Bubblegum",
-                url: "/shop?colour='Bubblegum'",
+                query: { [FilterKeyTypes.COLORS]: "Bubblegum" },
                 key: "Bubblegum",
               },
               {
                 displayName: "Black",
-                url: "/shop?colour='Black'",
+                query: { [FilterKeyTypes.COLORS]: "Black" },
                 key: "Black",
               },
               {
                 displayName: "Cement",
-                url: "/shop?colour='Cement'",
+                query: { [FilterKeyTypes.COLORS]: "Cement" },
                 key: "Cement",
               },
               {
                 displayName: "Grey",
-                url: "/shop?colour='Grey'",
+                query: { [FilterKeyTypes.COLORS]: "Grey" },
                 key: "Grey",
               },
             ],
           },
           columnList2: {
             displayName: "Type",
-            url: "/type",
-            key: "type",
+            key: FilterKeyTypes.TYPES,
             type: NavbarItemColumnListTypes.LIST,
             items: [
               {
                 displayName: "All Collection",
-                url: "/type?colour='All Collection'",
+                query: { [FilterKeyTypes.TYPES]: "All Collection" },
                 key: "All Collection",
               },
               {
                 displayName: "All Products",
-                url: "/type?colour='All Products'",
+                query: { [FilterKeyTypes.TYPES]: "All Products" },
                 key: "All Products",
               },
               {
                 displayName: "New",
-                url: "/type?colour='New'",
+                query: { [FilterKeyTypes.TYPES]: "New" },
                 key: "New",
               },
               {
                 displayName: "Popular",
-                url: "/type?colour='Popular'",
+                query: { [FilterKeyTypes.TYPES]: "Popular" },
                 key: "Popular",
               },
             ],
           },
           columnImage1: {
             displayName: "Shop New",
-            url: "/shopNew",
+            query: { [FilterKeyTypes.TAGS]: "Shop New" },
             key: "shopNew",
             type: NavbarItemColumnListTypes.IMAGE,
-            imageUrl: "/assets/images/Female/4.png",
+            imageUrl: "/assets/images/potraitLarge.webp",
           },
           columnImage2: {
             displayName: "Shop Popular",
-            url: "/shopPopular",
+            query: { [FilterKeyTypes.TAGS]: "Shop Popular" },
             key: "shopPopular",
             type: NavbarItemColumnListTypes.IMAGE,
-            imageUrl: "/assets/images/Female/5.png",
+            imageUrl: "/assets/images/test.webp",
           },
         },
       },
@@ -213,7 +235,7 @@ export const layoutConfig = {
         heading: "Story Theme",
         body: "A powerful theme built for modern commerce.",
         buttonsArray: [
-          { isLink: false, label: "View Products", key: "products" },
+          { isLink: false, url: "/", label: "View Products", key: "products" },
           { isLink: true, url: "/", label: "Learn More", key: "about" },
         ],
       },
@@ -235,6 +257,44 @@ export const layoutConfig = {
     collapsibleComponent: {
       items: collapsibleComponent,
       heading: "A few things you might be wondering",
+    },
+  },
+  shopConfiguration: {
+    filterConfig: {
+      seperateFilter: [
+        {
+          name: "Sort",
+          type: FilterTypes.RADIO,
+          key: FilterKeyTypes.SORT,
+          options: sortFilterOptions,
+        },
+      ],
+      basicFilters: [
+        {
+          name: "Color",
+          type: FilterTypes.COLOR,
+          key: FilterKeyTypes.COLORS,
+          options: colorFilterOptions,
+        },
+        {
+          name: "Product Type",
+          type: FilterTypes.CHECKBOX,
+          key: FilterKeyTypes.PRODUCT_TYPE,
+          options: productTypeFilterOptions,
+        },
+        {
+          name: "Availability",
+          type: FilterTypes.CHECKBOX,
+          key: FilterKeyTypes.AVAILABILITY,
+          options: availableFilterOptions,
+        },
+        {
+          name: "Price",
+          type: FilterTypes.RANGE,
+          key: FilterKeyTypes.PRICE,
+          options: priceFilterOptions,
+        },
+      ],
     },
   },
 };

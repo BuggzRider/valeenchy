@@ -1,25 +1,18 @@
-import { css } from "@emotion/react";
-import { leftArrowbutton, rightArrowbutton } from "./styles";
+import styles from "./styles.module.scss";
 import { ARROW_BUTTON_TYPES, PropTypes } from "./types";
-
-const emptyStyle = () => css``;
 
 const ArrowButton = ({
   onClickHandler,
-  extraStyles = emptyStyle,
+  extraStyles = "",
   label,
   type,
   disabled,
 }: PropTypes) => {
   return (
     <button
-      css={[
-        (theme) =>
-          type === ARROW_BUTTON_TYPES.LEFT
-            ? leftArrowbutton(theme)
-            : rightArrowbutton(theme),
-        (theme) => extraStyles(theme),
-      ]}
+      className={`${styles.arrowButton} ${
+        type === ARROW_BUTTON_TYPES.RIGHT ? styles.arrowButton_right : ""
+      } ${extraStyles}`}
       onClick={onClickHandler}
       disabled={disabled}
     >

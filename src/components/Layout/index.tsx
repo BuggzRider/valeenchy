@@ -1,5 +1,5 @@
 import { LayoutContextProvider } from "context/layoutContext";
-import fonts from "styles/font";
+import FuturaFont from "styles/font";
 import Footer from "./../Footer";
 import Navbar from "./../Navbar";
 import { layoutContainer, layoutContainerInner } from "./styles";
@@ -9,7 +9,7 @@ const Layout = ({ children }: PropTypes) => {
   return (
     <LayoutContextProvider>
       <div
-        className={`${fonts.className}`}
+        className={`${FuturaFont.className}`}
         css={(theme) => layoutContainer(theme)}
       >
         <div css={(theme) => layoutContainerInner(theme)}>

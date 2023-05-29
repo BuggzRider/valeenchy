@@ -1,8 +1,8 @@
-export type colorFilterOptionsType = {
-  key: String;
-  label: String;
-  code: String;
-  selected: Boolean;
-};
+import { MouseEventHandler } from "react";
+import { FilterOptionTypes } from "../types";
 
-export type colorFilterType = Array<colorFilterOptionsType>;
+export type ColorFilterPropsType = {
+  options: FilterOptionTypes;
+  selectedFilters: Array<string> | string;
+  onColorFilterChange: MouseEventHandler<HTMLUListElement>;
+};

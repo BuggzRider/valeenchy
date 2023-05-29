@@ -1,49 +1,52 @@
-import { css } from "@emotion/react";
 import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
 import ArrowButton from "components/UI/Buttons/ArrowButton";
 import { ARROW_BUTTON_TYPES } from "components/UI/Buttons/ArrowButton/types";
+import Link from "next/link";
 import { useRef, useState } from "react";
-import {
-  cardSliderContainer,
-  cardSliderHeaderContainer,
-  cardSliderHeaderControlsContainer,
-  cardSliderHeadingContainer,
-  imageSlideshowContainer,
-  imageSlideshowImage,
-} from "./styles";
+import styles from "./styles.module.scss";
 import { CARD_SLIDER_TYPES, CardSliderPropTypes, SlideTypes } from "./types";
 
-const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
+const CardSlider = ({
+  slides,
+  type,
+  heading,
+  containerStyles = "",
+  elementStyles = "",
+  cardSliderHeaderExtraStyles = "",
+  selectedOption = "",
+  selectedItemStyles = "",
+  onClick,
+  showHoveredText,
+}: CardSliderPropTypes) => {
   const [scrollPostition, setScrollPosition] = useState(0);
+  const [hoveredItem, setHoveredItem] = useState("");
   const containerRef = useRef<any>(null);
+
   const slideLeft = () => {
-    containerRef.current.scrollLeft =
+    const currentScrollPosition =
       containerRef.current?.scrollLeft - containerRef.current?.offsetWidth;
+    containerRef.current.scrollLeft = currentScrollPosition;
+    setScrollPosition(currentScrollPosition);
   };
 
   const slideRight = () => {
-    containerRef.current.scrollLeft =
+    const currentScrollPosition =
       containerRef.current?.scrollLeft + containerRef.current?.offsetWidth;
-    console.log(containerRef.current);
-  };
-
-  const onScrollHandler = (e: any) => {
-    setScrollPosition(e.target?.scrollLeft);
+    containerRef.current.scrollLeft = currentScrollPosition;
+    setScrollPosition(currentScrollPosition);
   };
 
   const arrowControlsContainer = () => (
-    <div css={(theme) => cardSliderHeaderControlsContainer(theme)}>
+    <div className={styles.cardSliderHeaderControlsContainer}>
       <ArrowButton
         onClickHandler={slideLeft}
-        extraStyles={() => css``}
         label="previous"
         type={ARROW_BUTTON_TYPES.LEFT}
-        disabled={scrollPostition === 0}
+        disabled={scrollPostition <= 0}
       />
       <ArrowButton
         onClickHandler={slideRight}
-        extraStyles={() => css``}
         label="forward"
         type={ARROW_BUTTON_TYPES.RIGHT}
         disabled={
@@ -57,58 +60,66 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
     </div>
   );
 
-  const getCompoenent = (
-    slides: Array<SlideTypes>,
-    type: CARD_SLIDER_TYPES
-  ) => {
+  const getComponent = (slides: Array<SlideTypes>, type: CARD_SLIDER_TYPES) => {
     switch (type) {
-      case CARD_SLIDER_TYPES.CIRCLE_IMAGE:
-      case CARD_SLIDER_TYPES.SQUARE_IMAGE:
-        return slides.map((slide) => (
-          <div
-            key={slide.key}
-            css={(theme) => imageSlideshowImage(theme, type)}
-          >
+      case CARD_SLIDER_TYPES.IMAGE:
+        return slides?.map((slide) => {
+          const imageComponent = (
             <SingleMediaRendered
               key={slide.key}
+              data-id={slide.key}
               url={slide.src}
-              mediaStyles={() => css`
-                object-fit: cover;
-              `}
-              containerStyles={() =>
-                type === CARD_SLIDER_TYPES.CIRCLE_IMAGE
-                  ? css`
-                      width: 100%;
-                      height: 100%;
-                      max-height: 200px;
-                      clip-path: circle(50%);
-                      border-radius: 50% !important;
-                      overflow: hidden;
-                    `
-                  : css`
-                      width: 100%;
-                      height: 70%;
-                    `
-              }
+              mediaStyles={elementStyles}
+              containerStyles={`${containerStyles} ${
+                selectedOption === slide.key ? selectedItemStyles : ""
+              }`}
               alt={slide.alt}
               type={SingleMediaOptions.IMAGE}
               shouldShowOverlay={false}
               footerTextConfig={slide.footerTextConfig}
             />
+          );
+          return onClick ? (
+            imageComponent
+          ) : (
+            <Link
+              href={slide.url || ""}
+              key={slide.key}
+              className={containerStyles}
+            >
+              {imageComponent}
+            </Link>
+          );
+        });
+      case CARD_SLIDER_TYPES.TEXT_CARD:
+        return slides?.map((slide) => (
+          <div
+            key={slide.key}
+            className={`${containerStyles} ${
+              selectedOption === slide.key ? selectedItemStyles : ""
+            }`}
+            data-id={slide.key}
+          >
+            <p className={elementStyles}>{slide.label}</p>
           </div>
         ));
-      case CARD_SLIDER_TYPES.TEXT_CARD:
-        return <div></div>;
       default:
         return <></>;
     }
   };
 
   return (
-    <div css={() => cardSliderContainer()}>
-      <div css={() => cardSliderHeaderContainer()}>
-        <div css={(theme) => cardSliderHeadingContainer(theme)}>
-          <p>{heading}</p>
+    <div className={styles.cardSliderContainer}>
+      <div className={styles.cardSliderHeaderContainer}>
+        <div
+          className={`${styles.cardSliderHeadingContainer} ${cardSliderHeaderExtraStyles}`}
+        >
+          <p className={styles.cardSliderHeadingtext}>{heading}</p>
+          {showHoveredText && (
+            <p className={styles.cardSliderItemHoveredName}>
+              {hoveredItem || selectedOption}
+            </p>
+          )}
         </div>
         {containerRef.current
           ? containerRef.current?.scrollWidth >
@@ -117,10 +128,15 @@ const CardSlider = ({ slides, type, heading }: CardSliderPropTypes) => {
       </div>
       <div
         ref={containerRef}
-        css={(theme) => imageSlideshowContainer(theme)}
-        onScroll={onScrollHandler}
+        className={styles.imageSlideshowContainer}
+        onClick={onClick}
+        onMouseOver={(e) =>
+          e?.target?.dataset?.id
+            ? setHoveredItem(e?.target?.dataset?.id)
+            : setHoveredItem("")
+        }
       >
-        {getCompoenent(slides, type)}
+        {getComponent(slides, type)}
       </div>
     </div>
   );

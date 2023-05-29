@@ -1,67 +1,50 @@
-import { css } from "@emotion/react";
+import { FilterKeyTypes } from "config";
+import { isEmpty } from "ramda";
+import styles from "./styles.module.scss";
+import { ChipContainerPropTypes } from "./types";
 
-const ChipContainer = ({ selectedFilters, setSelectedFilters }: any) => {
-  return (
-    <div
-      css={css`
-        padding: 16px 0px;
-      `}
-    >
-      <div
-        css={css`
-          border: 1px solid #eeeff1;
-          display: inline-block;
-          padding: 8px;
-          font-size: 16px;
-          border-radius: 3px;
-          cursor: pointer;
-          margin: 0px 8px;
-        `}
-        onClick={() => setSelectedFilters([])}
-      >
-        <span
-          css={css`
-            font-size: 10px;
-            margin: 0px 5px;
-          `}
-        >
-          ✖
-        </span>
-        Clear Filters
-      </div>
-      {selectedFilters.map((filter: any) => (
+const ChipContainer = ({
+  selectedFiltersObject = {},
+  onChipClick,
+}: ChipContainerPropTypes) => {
+  const getFilter = (
+    selectedFiltersObject: ChipContainerPropTypes["selectedFiltersObject"],
+    filterKey: FilterKeyTypes
+  ) => {
+    if (typeof selectedFiltersObject[filterKey] === "string") {
+      return (
         <div
-          css={css`
-            border: 1px solid #eeeff1;
-            display: inline-block;
-            padding: 8px;
-            font-size: 16px;
-            border-radius: 3px;
-            cursor: pointer;
-            margin: 5px 8px;
-          `}
-          onClick={() =>
-            setSelectedFilters((prevState: any) =>
-              prevState.filter(
-                (filterOption: any) => filterOption.value !== filter.value
-              )
-            )
-          }
-          key={`${filter.type}_${filter.value}`}
+          className={styles["chip"]}
+          key={`${filterKey}_${selectedFiltersObject[filterKey]}`}
+          data-filter={JSON.stringify({
+            [filterKey]: selectedFiltersObject[filterKey],
+          })}
         >
-          <span
-            css={css`
-              font-size: 10px;
-              margin: 0px 5px;
-            `}
-          >
-            ✖
-          </span>{" "}
-          {filter.value}
+          {selectedFiltersObject[filterKey]}
         </div>
-      ))}
+      );
+    } else if (Array.isArray(selectedFiltersObject[filterKey])) {
+      return (selectedFiltersObject[filterKey] as Array<string>)?.map(
+        (filter: any) => (
+          <div
+            className={styles["chip"]}
+            key={`${filterKey}_${filter}`}
+            data-filter={JSON.stringify({ [filterKey]: filter })}
+          >
+            {filter}
+          </div>
+        )
+      );
+    }
+  };
+
+  return !isEmpty(selectedFiltersObject) ? (
+    <div className={styles["chip-container"]} onClick={onChipClick}>
+      {Object.keys(selectedFiltersObject).map((filterKey: any) =>
+        getFilter(selectedFiltersObject, filterKey)
+      )}
     </div>
-  );
+  ) : null;
 };
 
 export default ChipContainer;

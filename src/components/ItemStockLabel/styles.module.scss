@@ -1,0 +1,61 @@
+@import "../../styles/base/animations";
+
+.stockLabel {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 1rem;
+  color: #323945;
+  .breathingIcon {
+    position: relative;
+    padding-left: 1rem;
+    display: block;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: pulse 2.5s linear;
+      animation-iteration-count: infinite;
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 7px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      opacity: 1;
+    }
+  }
+  .warnBackgroundColor {
+    &::before {
+      background-color: #ffc896;
+    }
+    &::after {
+      background-color: #ffc896;
+    }
+  }
+  .dangerBackgroundColor {
+    &::before {
+      background-color: #ff8484;
+    }
+    &::after {
+      background-color: #ff8484;
+    }
+  }
+  .successBackgroundColor {
+    &::before {
+      background-color: #51c88e;
+    }
+    &::after {
+      background-color: #51c88e;
+    }
+  }
+}

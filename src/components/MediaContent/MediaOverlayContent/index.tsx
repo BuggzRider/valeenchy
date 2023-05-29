@@ -1,54 +1,53 @@
-import { css } from "@emotion/react";
-import Button from "components/UI/Buttons/Button";
-import { MouseEvent } from "react";
-import {
-  mediaOverlayContentBody,
-  mediaOverlayContentButton,
-  mediaOverlayContentButtonContainer,
-  mediaOverlayContentContainer,
-  mediaOverlayContentHeading,
-  mediaOverlayContentWrapper,
-} from "./styles";
-import { MediaOverlayTypes } from "./types";
+import LinkButton from "components/UI/Buttons/LinkButton";
+import CustomOverlayChildren from "./customChildren";
+import styles from "./styles.module.scss";
+import { MediaOverlayTypes, OverlayTypes } from "./types";
 
 const MediaOverlayContent = ({
   heading,
   body,
   buttonsArray = [],
-  extraContainerStyles = () => css``,
+  extraContainerStyles = "",
+  customOverlayProps,
+  type = OverlayTypes.HOME_LAYOUT,
 }: MediaOverlayTypes) => {
-  const onButtonClickHandler = (e: MouseEvent) => {
-    console.log(e);
+  const getLayout = (type: OverlayTypes) => {
+    switch (type) {
+      case OverlayTypes.HOME_LAYOUT:
+        return (
+          <div className={styles.mediaOverlayContentContainer}>
+            <h1 className={styles.mediaOverlayContentHeading}>{heading}</h1>
+            {body && <p className={styles.mediaOverlayContentBody}>{body}</p>}
+            {buttonsArray.length > 0 && (
+              <div className={styles.mediaOverlayContentButtonContainer}>
+                {buttonsArray.map((button) => (
+                  <div
+                    key={button.key}
+                    className={styles.mediaOverlayContentButton}
+                  >
+                    <LinkButton
+                      {...button}
+                      extraStyles={styles.linkExtraStyles}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      case OverlayTypes.PRODUCT_LAYOUT:
+        return (
+          customOverlayProps && (
+            <CustomOverlayChildren {...customOverlayProps} />
+          )
+        );
+    }
   };
   return (
     <div
-      css={[
-        (theme) => mediaOverlayContentWrapper(theme),
-        (theme) => extraContainerStyles(theme),
-      ]}
+      className={`${styles.mediaOverlayContentWrapper} ${extraContainerStyles}`}
     >
-      <div css={(theme) => mediaOverlayContentContainer(theme)}>
-        <h1 css={(theme) => mediaOverlayContentHeading(theme)}>{heading}</h1>
-        {body && <p css={(theme) => mediaOverlayContentBody(theme)}>{body}</p>}
-        {buttonsArray.length > 0 && (
-          <div css={(theme) => mediaOverlayContentButtonContainer(theme)}>
-            {buttonsArray.map((button) => (
-              <div
-                key={button.key}
-                css={(theme) => mediaOverlayContentButton(theme)}
-              >
-                <Button
-                  key={button.key}
-                  isLink={button.isLink}
-                  url={button.url || ""}
-                  onClickHandler={onButtonClickHandler}
-                  label={button.label}
-                />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      {getLayout(type)}
     </div>
   );
 };

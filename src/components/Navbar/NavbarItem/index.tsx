@@ -3,6 +3,7 @@ import LinkListRenderer from "components/LinkListRenderer";
 import SingleMediaRendered from "components/SingleMediaRenderer";
 import { SingleMediaOptions } from "components/SingleMediaRenderer/types";
 import { NavbarItemListTypes, NavbarItemTypes } from "config";
+import Link from "next/link";
 import { useState } from "react";
 import { NavbarPropTypes } from "../types";
 import {
@@ -27,7 +28,7 @@ const NavbarItem = ({ config }: NavbarPropTypes) => {
           <ul css={() => expandedItemsListContainer()}>
             <LinkListRenderer
               key={data.listItems.columnList1.key}
-              config={data.listItems.columnList1}
+              config={{ ...data.listItems.columnList1, url: data.url }}
               linkStyles={(theme: any) => css`
                 font-weight: ${theme.fontWeights.bold};
               `}
@@ -35,7 +36,7 @@ const NavbarItem = ({ config }: NavbarPropTypes) => {
             {data.listItems.columnList1.items.map((dataItem: any) => (
               <LinkListRenderer
                 key={dataItem.key}
-                config={dataItem}
+                config={{ ...dataItem, url: data.url }}
                 linkStyles={(theme: any) => css`
                   font-weight: ${theme.fontWeights.light};
                 `}
@@ -45,7 +46,7 @@ const NavbarItem = ({ config }: NavbarPropTypes) => {
           <ul css={() => expandedItemsListContainer()}>
             <LinkListRenderer
               key={data.listItems.columnList2.key}
-              config={data.listItems.columnList2}
+              config={{ ...data.listItems.columnList2, url: data.url }}
               linkStyles={(theme: any) => css`
                 font-weight: ${theme.fontWeights.bold};
               `}
@@ -53,16 +54,21 @@ const NavbarItem = ({ config }: NavbarPropTypes) => {
             {data.listItems.columnList2.items.map((dataItem: any) => (
               <LinkListRenderer
                 key={dataItem.key}
-                config={dataItem}
+                config={{ ...dataItem, url: data.url }}
                 linkStyles={(theme: any) => css`
                   font-weight: ${theme.fontWeights.light};
                 `}
               />
             ))}
           </ul>
-          <div>
+          <Link
+            href={{
+              pathname: data.url,
+              query: data.listItems.columnImage1.query,
+            }}
+          >
             <SingleMediaRendered
-              url="/assets/images/potraitLarge.webp"
+              url={data.listItems.columnImage1.imageUrl}
               mediaStyles={() => css`
                 object-fit: cover;
               `}
@@ -70,35 +76,40 @@ const NavbarItem = ({ config }: NavbarPropTypes) => {
                 width: 100%;
                 height: 100%;
               `}
-              alt="image"
+              alt={data.listItems.columnImage1.displayName}
               type={SingleMediaOptions.IMAGE}
               shouldShowOverlay={true}
               overlayTextConfig={{
                 contentAlignment: "flex-start",
-                heading: "Shop New",
+                heading: data.listItems.columnImage1.displayName,
                 extraContainerStyles: imageExtraOverlayStyles,
               }}
             />
-          </div>
-          <div>
+          </Link>
+          <Link
+            href={{
+              query: data.listItems.columnImage2.query,
+              pathname: data.url,
+            }}
+          >
             <SingleMediaRendered
-              url="/assets/images/test.webp"
+              url={data.listItems.columnImage2.imageUrl}
               mediaStyles={() => css`
                 object-fit: cover;
               `}
               containerStyles={() => css`
                 width: 100%;
               `}
-              alt="image"
+              alt={data.listItems.columnImage1.displayName}
               type={SingleMediaOptions.IMAGE}
               shouldShowOverlay={true}
               overlayTextConfig={{
                 contentAlignment: "flex-start",
-                heading: "Shop Popular",
+                heading: data.listItems.columnImage1.displayName,
                 extraContainerStyles: imageExtraOverlayStyles,
               }}
             />
-          </div>
+          </Link>
         </div>
       );
     } else {
