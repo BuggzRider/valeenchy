@@ -9,7 +9,6 @@ import LayoutContext from "context/layoutContext/layout-context";
 import Head from "next/head";
 import { useContext } from "react";
 import styles from "styles/pageStyles/index.styles.module.scss";
-import { homePageCenterOverlayTextContainerStyles } from "../styles/pageStyles/index.styles";
 
 export default function Home() {
   const { homePageConfig } = useContext(LayoutContext);
@@ -30,8 +29,6 @@ export default function Home() {
           type={SingleMediaOptions.IMAGE}
           shouldShowOverlay={true}
           overlayTextConfig={{
-            extraContainerStyles: (theme: any) =>
-              homePageCenterOverlayTextContainerStyles(theme),
             ...homePageConfig?.centerImageObject?.overlayTextConfig,
           }}
         />

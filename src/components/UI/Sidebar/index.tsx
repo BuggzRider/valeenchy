@@ -1,41 +1,26 @@
+import CloseButton from "../Buttons/CloseButton";
+import styles from "./styles.module.scss";
 import { SidebarPropTypes } from "./types";
-import {
-  sidebarListWrapper,
-  sidebarChildContainer,
-  sidebarListCloseButtonContainer,
-} from "./styles";
-import { css } from "@emotion/react";
-import CloseButton from "components/UI/Buttons/CloseButton";
 
 const Sidebar = ({
   children,
   isSidebarOpen,
-  setIsSidebarOpen,
-  extraStyles,
-  closeButtonColor,
+  onClose,
+  title,
+  footer,
 }: SidebarPropTypes) => {
   return (
     <div
-      css={(theme) => [
-        sidebarListWrapper(theme),
-        extraStyles?.sidebarListWrapperExtraStyles?.(theme),
-        isSidebarOpen ? extraStyles?.sidebarListContainerOpen(theme) : css``,
-      ]}
+      className={`${styles.sidebarContainer} ${
+        isSidebarOpen ? styles.sidebarOpen : ""
+      }`}
     >
-      <div css={(theme) => sidebarListCloseButtonContainer(theme)}>
-        <CloseButton
-          onClickhandler={() => setIsSidebarOpen(false)}
-          closeButtonColor={closeButtonColor}
-        />
+      <div className={styles.sidebarHeaderContainer}>
+        {title}
+        <CloseButton onClickHandler={onClose} />
       </div>
-      <div
-        css={(theme) => [
-          sidebarChildContainer(theme),
-          extraStyles?.sidebarChildrenExtraStyles?.(theme),
-        ]}
-      >
-        {children}
-      </div>
+      <div className={styles.sidebarChildContainer}>{children}</div>
+      {footer}
     </div>
   );
 };

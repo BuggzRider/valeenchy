@@ -19,7 +19,7 @@ export default function Home() {
       <section className={styles.productPageSectionContainer}>
         <div className={styles.productInfoWrapper}>
           <ProductImage imagesArray={productData.imageUrl} />
-          <ProductInfo />
+          <ProductInfo productInfoData={productData} />
         </div>
       </section>
     </div>

@@ -1,5 +1,5 @@
 import { MediaFooterTypes } from "components/MediaContent/MediaFooterContent/types";
-import { Key } from "react";
+import { Key, MouseEventHandler } from "react";
 
 export enum CARD_SLIDER_TYPES {
   IMAGE = "IMAGE",
@@ -10,6 +10,7 @@ export type SlideTypes = {
   src: string;
   url: string;
   alt: string;
+  label?: string;
   key: Key;
 };
 
@@ -19,4 +20,9 @@ export type CardSliderPropTypes = {
   heading: String;
   containerStyles?: string;
   elementStyles?: string;
+  cardSliderHeaderExtraStyles?: string;
+  selectedItemStyles?: string;
+  selectedOption?: string;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  showHoveredText?: boolean;
 };

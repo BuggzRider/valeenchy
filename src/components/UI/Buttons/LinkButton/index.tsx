@@ -1,32 +1,22 @@
-import { css } from "@emotion/react";
 import Link from "next/link";
-import { buttonLink } from "./styles";
+import styles from "./styles.module.scss";
 import { PropTypes } from "./types";
-
-const emptyStyle = () => css``;
 
 const LinkButton = ({
   isLink,
   url,
   onClickHandler,
-  extraStyles = emptyStyle,
+  extraStyles = "",
   label,
 }: PropTypes) => {
-  return isLink ? (
+  return (
     <Link
-      css={[(theme) => buttonLink(theme), (theme) => extraStyles(theme)]}
+      className={`${isLink ? styles.link : styles.linkButton}  ${extraStyles}`}
       href={url || "javascript:void(0)"}
       onClick={onClickHandler}
     >
       {label}
     </Link>
-  ) : (
-    <button
-      css={[(theme) => buttonLink(theme), (theme) => extraStyles(theme)]}
-      onClick={onClickHandler}
-    >
-      {label}
-    </button>
   );
 };
 

@@ -235,7 +235,7 @@ export const layoutConfig = {
         heading: "Story Theme",
         body: "A powerful theme built for modern commerce.",
         buttonsArray: [
-          { isLink: false, label: "View Products", key: "products" },
+          { isLink: false, url: "/", label: "View Products", key: "products" },
           { isLink: true, url: "/", label: "Learn More", key: "about" },
         ],
       },

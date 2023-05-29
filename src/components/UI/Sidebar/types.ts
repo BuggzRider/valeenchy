@@ -1,4 +1,4 @@
-import {  ReactNode } from "react";
+import { MouseEventHandler, ReactElement, ReactNode } from "react";
 
 export type NavbarPropTypes = {
   config: any;
@@ -13,8 +13,7 @@ export type ExtraStylesTypes = {
 export type SidebarPropTypes = {
   children: ReactNode;
   isSidebarOpen: boolean;
-  setIsSidebarOpen: Function;
-  extraStyles: ExtraStylesTypes;
-  closeButtonColor?: String;
+  onClose: MouseEventHandler;
+  title: ReactElement;
+  footer: ReactElement;
 };
-

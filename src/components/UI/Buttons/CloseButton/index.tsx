@@ -1,8 +1,8 @@
 import { closeButtonContainer, closeButtonStyles } from "./styles";
 
-const CloseButton = ({ onClickhandler, closeButtonColor }: any) => {
+const CloseButton = ({ onClickHandler, closeButtonColor }: any) => {
   return (
-    <div css={(theme) => closeButtonContainer(theme)} onClick={onClickhandler}>
+    <div css={(theme) => closeButtonContainer(theme)} onClick={onClickHandler}>
       <span css={(theme) => closeButtonStyles(theme, closeButtonColor)}>
         &nbsp;
       </span>

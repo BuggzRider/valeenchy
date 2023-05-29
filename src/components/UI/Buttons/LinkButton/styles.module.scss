@@ -1,0 +1,50 @@
+@import "../../../../styles/abstracts/mixins";
+
+.linkButton {
+  display: inline-block;
+  font-size: 1.772rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 1.1rem;
+  background-color: white;
+  color: black;
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0%), 0 1px 3px rgb(0 0 0 / 0%);
+  padding: 16px 16px;
+  @include respond(990) {
+    padding: 16px 24px;
+    font-size: 1.21rem;
+  }
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+.link {
+  color: white;
+  text-decoration: none;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  background: transparent;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}

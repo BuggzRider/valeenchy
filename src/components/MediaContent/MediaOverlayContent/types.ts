@@ -1,4 +1,3 @@
-import { Interpolation, Theme } from "@emotion/react";
 import { PropTypes as ButtonPropTypes } from "components/UI/Buttons/LinkButton/types";
 import { Key } from "react";
 
@@ -10,7 +9,7 @@ export type MediaOverlayTypes = {
   heading?: String;
   body?: String;
   buttonsArray?: Array<ExtendedButtonPropTypes>;
-  extraContainerStyles?: (_theme: any) => Interpolation<Theme>;
+  extraContainerStyles?: string;
   onButtonClickHandler?: any;
   customOverlayProps?: CustomOverlayChildrenPropTypes;
   type: OverlayTypes;
