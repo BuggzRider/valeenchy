@@ -1,12 +1,15 @@
-import { closeButtonContainer, closeButtonStyles } from "./styles";
+import styles from "./styles.module.scss";
 
-const CloseButton = ({ onClickHandler, closeButtonColor }: any) => {
+const CloseButton = ({ onClickHandler, circled = false }: any) => {
   return (
-    <div css={(theme) => closeButtonContainer(theme)} onClick={onClickHandler}>
-      <span css={(theme) => closeButtonStyles(theme, closeButtonColor)}>
-        &nbsp;
-      </span>
-    </div>
+    <button
+      className={`${styles.closeButtonContainer} ${
+        circled ? styles.circled : ""
+      }`}
+      onClick={onClickHandler}
+    >
+      <span className={styles.closeButtonStyles}>&nbsp;</span>
+    </button>
   );
 };
 

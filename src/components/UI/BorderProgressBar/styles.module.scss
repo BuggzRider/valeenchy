@@ -1,0 +1,22 @@
+.borderProgressBar {
+  height: 3px;
+  width: 0%;
+  position: absolute;
+  transition: all 1s;
+}
+.borderProgressBarTop {
+  top: 0;
+}
+.borderProgressBarBottom {
+  bottom: 0;
+}
+.borderProgressBarLeft {
+  transform: rotate(180deg);
+  left: 0;
+  bottom: 0;
+}
+.borderProgressBarRight {
+  transform: rotate(180deg);
+  right: 0;
+  bottom: 0;
+}

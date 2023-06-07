@@ -1,7 +1,8 @@
+import { useCartContext } from "components/Cart/context";
 import LayoutContext from "context/layoutContext/layout-context";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import NavbarItems from "./NavbarItems";
 import {
   navBarStyles,
@@ -12,8 +13,8 @@ import {
 } from "./styles";
 
 const Navbar = () => {
-  const [isCartSidbarOpen, setCartSidebarOpen] = useState(false);
   const { navbarConfig } = useContext(LayoutContext);
+  const { setIsCartPanelOpen } = useCartContext();
   return (
     <nav css={(theme) => navBarStyles(theme)}>
       <div css={navbarLogoContainer}>
@@ -41,7 +42,7 @@ const Navbar = () => {
           width="51"
           height="55"
           css={(theme) => navbarIcon(theme)}
-          onClick={() => setCartSidebarOpen(!isCartSidbarOpen)}
+          onClick={() => setIsCartPanelOpen(true)}
         />
       </div>
     </nav>

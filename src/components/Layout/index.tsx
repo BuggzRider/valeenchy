@@ -1,23 +1,28 @@
+import Cart from "components/Cart";
+import CartContextProvider from "components/Cart/context/cart-context-provider";
 import { LayoutContextProvider } from "context/layoutContext";
 import FuturaFont from "styles/font";
 import Footer from "./../Footer";
 import Navbar from "./../Navbar";
-import { layoutContainer, layoutContainerInner } from "./styles";
+import styles from "./styles.module.scss";
 import { PropTypes } from "./types";
 
 const Layout = ({ children }: PropTypes) => {
   return (
     <LayoutContextProvider>
-      <div
-        className={`${FuturaFont.className}`}
-        css={(theme) => layoutContainer(theme)}
-      >
-        <div css={(theme) => layoutContainerInner(theme)}>
-          <Navbar />
-          <main>{children}</main>
+      <CartContextProvider>
+        <div
+          className={`${FuturaFont.className} ${styles.layoutContainer}`}
+          id="layout_root"
+        >
+          <div className={`${styles.layoutContainerInner}`}>
+            <Navbar />
+            <main>{children}</main>
+          </div>
+          <Footer />
+          <Cart />
         </div>
-        <Footer />
-      </div>
+      </CartContextProvider>
     </LayoutContextProvider>
   );
 };

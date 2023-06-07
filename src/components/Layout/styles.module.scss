@@ -1,0 +1,25 @@
+@import "../../styles/abstracts/mixins";
+
+.layoutContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  @include respond(990) {
+    font-size: 1.21rem;
+  }
+  .layoutContainerInner {
+    width: 100%;
+    max-width: 1500px;
+    padding: 0.5rem;
+    @include respond(990) {
+      padding: 1rem;
+    }
+    @include respond(1120) {
+      padding: 1.5rem;
+    }
+  }
+}

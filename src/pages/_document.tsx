@@ -6,6 +6,7 @@ import Document, {
   NextScript,
 } from "next/document";
 import * as React from "react";
+import FuturaFont from "styles/font";
 import { renderStatic } from "../styles/renderer";
 export default class AppDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -29,7 +30,7 @@ export default class AppDocument extends Document {
     return (
       <Html>
         <Head />
-        <body>
+        <body className={`${FuturaFont.className}`}>
           <Main />
           <NextScript />
         </body>

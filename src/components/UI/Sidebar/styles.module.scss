@@ -8,8 +8,11 @@
   z-index: 5500;
   opacity: 0;
   width: 0;
+  visibility: hidden;
   background-color: white;
-  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px #0000000f, 0 3px 12px #00000005;
+  padding: 1.2rem;
   .sidebarHeaderContainer {
     display: flex;
     justify-content: space-between;
@@ -23,5 +26,6 @@
 
 .sidebarOpen {
   opacity: 1;
+  visibility: visible;
   width: 50%;
 }
