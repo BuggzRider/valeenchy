@@ -14,7 +14,7 @@ import {
 
 const Navbar = () => {
   const { navbarConfig } = useContext(LayoutContext);
-  const { setIsCartPanelOpen } = useCartContext();
+  const { isCartPanelOpen, setIsCartPanelOpen, isCartEmpty } = useCartContext();
   return (
     <nav css={(theme) => navBarStyles(theme)}>
       <div css={navbarLogoContainer}>
@@ -37,12 +37,12 @@ const Navbar = () => {
           css={(theme) => navbarIcon(theme)}
         />
         <Image
-          src="/icons/cart.svg"
-          alt="Empty cart"
+          src={isCartEmpty ? "/icons/cart.svg" : "/icons/filledCart.svg"}
+          alt={isCartEmpty ? "Empty cart" : "Filled cart"}
           width="51"
           height="55"
           css={(theme) => navbarIcon(theme)}
-          onClick={() => setIsCartPanelOpen(true)}
+          onClick={() => setIsCartPanelOpen(!isCartPanelOpen)}
         />
       </div>
     </nav>

@@ -5,6 +5,7 @@ const CartContextProvider = (props: any) => {
   const [shippingQualifyMessage, setShippingQualifyMessage] = useState(
     "Congratulations! Your order qualifies for free shipping"
   );
+  const [isCartEmpty, setIsCartEmpty] = useState(true);
   return (
     <CartContext.Provider
       value={{
@@ -12,6 +13,8 @@ const CartContextProvider = (props: any) => {
         setIsCartPanelOpen,
         shippingQualifyMessage,
         setShippingQualifyMessage,
+        isCartEmpty,
+        setIsCartEmpty,
       }}
     >
       {props.children}

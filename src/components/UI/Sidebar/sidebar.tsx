@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import Backdrop from "../BackDrop";
 import CloseButton from "../Buttons/CloseButton";
 import styles from "./styles.module.scss";
 import { SidebarPropTypes } from "./types";
@@ -28,19 +29,22 @@ const SidebarComponent = ({
     };
   }, [isSidebarOpen, onClose]);
   return (
-    <div
-      className={`${styles.sidebarContainer} ${
-        isSidebarOpen ? styles.sidebarOpen : ""
-      }`}
-      ref={containerRef}
-    >
-      <div className={styles.sidebarHeaderContainer}>
-        <h1>{title}</h1>
-        <CloseButton onClickHandler={onClose} />
+    <>
+      <Backdrop show={isSidebarOpen} />
+      <div
+        className={`${styles.sidebarContainer} ${
+          isSidebarOpen ? styles.sidebarOpen : ""
+        }`}
+        ref={containerRef}
+      >
+        <div className={styles.sidebarHeaderContainer}>
+          <h1>{title}</h1>
+          <CloseButton onClickHandler={onClose} />
+        </div>
+        <div className={styles.sidebarChildContainer}>{children}</div>
+        {footer}
       </div>
-      <div className={styles.sidebarChildContainer}>{children}</div>
-      {footer}
-    </div>
+    </>
   );
 };
 

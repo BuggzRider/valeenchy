@@ -1,13 +1,12 @@
 @import "../../../styles/abstracts/mixins";
 
 .sidebarContainer {
-  height: 100vh;
+  height: 0;
   position: fixed;
-  top: 0;
-  right: 0;
+  bottom: 0;
   z-index: 5500;
   opacity: 0;
-  width: 0;
+  width: 100vw;
   visibility: hidden;
   background-color: white;
   transition: all 0.3s ease;
@@ -22,10 +21,25 @@
     height: 100%;
     width: 100%;
   }
+  @include respond(990) {
+    max-width: 580px;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: unset;
+    max-height: unset;
+    width: 0;
+  }
 }
 
 .sidebarOpen {
   opacity: 1;
   visibility: visible;
-  width: 50%;
+  height: 80vh;
+  @include respond(990) {
+    opacity: 1;
+    visibility: visible;
+    width: 75vw;
+    height: 100vh;
+  }
 }

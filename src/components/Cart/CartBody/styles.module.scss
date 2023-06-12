@@ -1,25 +1,42 @@
 .cartBodyContainer {
   box-sizing: border-box;
-  .shippingQualifyMessageContainer {
-    width: 100%;
-    border: 1px solid #eeeff1;
-    border-radius: 3px;
-    font-size: 0.875rem;
-    line-height: 1.3;
-    letter-spacing: 1px;
-    margin: 10px 0 20px 0;
-    transition: all 0.3s;
-    position: relative;
-    .shippingQualifyTextContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 97%;
+  .cartHeaderItems {
+    .shippingQualifyMessageContainer {
       width: 100%;
-      padding: 15px 20px;
-      display: flex;
+      border: 1px solid #eeeff1;
+      border-radius: 3px;
+      font-size: 0.875rem;
+      line-height: 1.3;
+      letter-spacing: 1px;
+      margin: 10px 0 20px 0;
+      transition: all 0.3s;
       position: relative;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      .shippingQualifyMessage {
+      .shippingQualifyTextContainer {
+        width: 100%;
+        padding: 15px 20px;
+        display: flex;
+        position: relative;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        .shippingQualifyMessage {
+        }
       }
+    }
+  }
+  .cartFooterItems {
+    .shipmentTextContainer {
+      font-weight: 400;
+      margin: 1rem 0;
+    }
+    .cartButton {
+      width: 100%;
+      font-size: 1.4rem;
+      padding: 1rem;
     }
   }
 }
